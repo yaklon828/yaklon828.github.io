@@ -1,71 +1,232 @@
-/* About 區塊 */
-.about {
-  max-width: 800px;
-  margin: 60px auto;
-  text-align: center;
-  padding: 0 20px;
+/* ================================
+   全站主體設定
+   ================================ */
+body {
+  margin: 0;
+  font-family: 'Noto Sans TC', sans-serif;
+  background-color: #111;
+  color: #f0f0f0;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+  overflow-x: hidden;
 }
-.about-photo {
-  max-width: 180px;
+
+/* 背景粒子 */
+#bg-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+}
+
+/* ================================
+   關於我：左右分欄
+   ================================ */
+.about.split-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 60px auto;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.about-left {
+  flex: 0 0 220px;
+  text-align: center;
+}
+
+.side-photo {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
   border-radius: 50%;
   border: 3px solid gold;
-  box-shadow: 0 0 10px rgba(255,215,0,0.3);
-  margin-bottom: 20px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  display: inline-block;
 }
-.about h2 {
+
+.about-right {
+  flex: 1;
+  min-width: 280px;
+}
+
+.about-right h2 {
   color: gold;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.8em;
+}
+
+.scroll-box {
+  max-height: 420px;
+  overflow-y: auto;
+  padding-right: 10px;
+  scrollbar-width: thin;
+}
+
+.scroll-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scroll-box::-webkit-scrollbar-thumb {
+  background-color: gold;
+  border-radius: 4px;
+}
+
+/* ================================
+   作品分類 + 展示
+   ================================ */
+section h2 {
+  font-size: 1.8em;
+  color: gold;
+  border-left: 5px solid gold;
+  padding-left: 10px;
+  margin-top: 60px;
   margin-bottom: 20px;
 }
 
-/* 作品集 */
-.projects {
-  max-width: 1000px;
-  margin: 60px auto;
-  padding: 0 20px;
+.category-bar {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px 20px;
+  scroll-snap-type: x mandatory;
+  border-bottom: 1px solid #333;
+  margin-bottom: 20px;
 }
+
+.category {
+  flex: 0 0 auto;
+  padding: 8px 16px;
+  background-color: #1a1a1a;
+  border: 1px solid #555;
+  color: gold;
+  font-weight: bold;
+  cursor: pointer;
+  scroll-snap-align: center;
+  white-space: nowrap;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.category:hover,
+.category.active {
+  background-color: gold;
+  color: #111;
+}
+
+.projects {
+  padding: 20px 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
 .project-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: center;
+  justify-content: flex-start;
 }
+
 .project-card {
-  background: #1a1a1a;
+  background-color: #1a1a1a;
+  border: 1px solid #333;
   border-left: 5px solid gold;
   padding: 15px;
   width: 280px;
   text-align: center;
-  transition: transform .3s;
-}
-.project-card:hover {
-  transform: scale(1.05);
-}
-.project-card img {
-  max-width: 100%;
-  border: 2px solid #333;
-  margin-bottom: 10px;
-}
-.project-card h3 {
-  color: gold;
-  margin-bottom: 5px;
+  transition: transform 0.3s;
 }
 
-/* 聯絡我 */
+.project-card:hover {
+  transform: scale(1.03);
+}
+
+.project-card img {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #333;
+  cursor: zoom-in;
+}
+
+.project-card h3 {
+  margin-top: 10px;
+  color: gold;
+  font-size: 1.2em;
+}
+
+/* ================================
+   聯絡我區塊
+   ================================ */
 .contact {
   text-align: center;
   margin: 60px auto;
   padding: 0 20px;
 }
+
 .line-button {
   display: inline-block;
-  background: gold;
-  color: #111;
   padding: 10px 20px;
+  background-color: gold;
+  color: #111;
+  text-decoration: none;
   border-radius: 25px;
   font-weight: bold;
-  text-decoration: none;
-  transition: background .3s;
+  transition: background-color 0.3s;
 }
+
+/* 按鈕懸停 */
 .line-button:hover {
-  background: #f7c800;
+  background-color: #f7c800;
+}
+
+/* 手機固定右下角 LINE 按鈕 */
+.fixed-line {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: gold;
+  color: #111;
+  font-weight: bold;
+  padding: 10px 16px;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 0 10px gold;
+  z-index: 999;
+}
+
+/* ======================================
+   手機版顯示固定按鈕 & 版面改直排
+   ====================================== */
+@media (max-width: 768px) {
+  .about.split-layout {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .scroll-box {
+    max-height: none;
+    overflow-y: visible;
+  }
+  .project-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  .project-card {
+    width: 90%;
+  }
+  .fixed-line {
+    display: block;
+  }
 }
