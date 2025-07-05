@@ -1,18 +1,30 @@
-
-/* 網站主體字體與背景設定 */
+/* 全站主體設定 */
 body {
   margin: 0;
   font-family: 'Noto Sans TC', sans-serif;
-  background-color: #111; /* 深黑底 */
-  color: #f0f0f0; /* 淺灰文字 */
+  background-color: #111;
+  color: #f0f0f0;
   line-height: 1.6;
+  position: relative;
+  z-index: 1;
 }
 
-/* 主視覺 Hero 區 */
+/* 背景粒子 canvas */
+#bg-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* 主視覺區塊 */
 .hero {
   background-color: #000;
   text-align: center;
   padding: 80px 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-photo {
@@ -34,7 +46,7 @@ body {
   color: #ccc;
 }
 
-/* 各區塊標題 */
+/* 主要區塊標題 */
 section h2 {
   font-size: 1.8em;
   color: gold;
@@ -44,23 +56,102 @@ section h2 {
   margin-bottom: 20px;
 }
 
-/* About 區 */
+/* 關於我區塊：左右分欄 */
 .about {
-  padding: 20px 40px;
-  max-width: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 40px;
+  max-width: 1200px;
   margin: auto;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
 }
 
-/* 作品區 */
+.about-left {
+  flex: 0 0 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.side-photo {
+  max-width: 180px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  border: 3px solid gold;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.about-right {
+  flex: 1;
+  min-width: 280px;
+}
+
+.scroll-box {
+  max-height: 420px;
+  overflow-y: auto;
+  padding-right: 15px;
+  scrollbar-width: thin;
+}
+
+.scroll-box::-webkit-scrollbar {
+  width: 6px;
+}
+.scroll-box::-webkit-scrollbar-thumb {
+  background-color: gold;
+  border-radius: 4px;
+}
+
+/* 分類橫向捲動 */
+.category-bar {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px 20px;
+  scroll-snap-type: x mandatory;
+  border-bottom: 1px solid #333;
+  margin-bottom: 20px;
+}
+
+.category {
+  flex: 0 0 auto;
+  padding: 8px 16px;
+  background-color: #1a1a1a;
+  border: 1px solid #555;
+  color: gold;
+  font-weight: bold;
+  cursor: pointer;
+  scroll-snap-align: center;
+  white-space: nowrap;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.category:hover {
+  background-color: gold;
+  color: #111;
+}
+
+.category.active {
+  background-color: gold;
+  color: #111;
+}
+
+/* 作品展示區 */
 .projects {
   padding: 20px 40px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .project-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: flex-start;
 }
 
 .project-card {
@@ -80,6 +171,7 @@ section h2 {
   max-width: 100%;
   height: auto;
   border: 2px solid #333;
+  cursor: zoom-in;
 }
 
 .project-card h3 {
@@ -87,7 +179,7 @@ section h2 {
   color: gold;
 }
 
-/* 聯絡區 */
+/* 聯絡我區塊 */
 .contact {
   padding: 30px 40px;
   text-align: center;
@@ -109,18 +201,34 @@ section h2 {
   background-color: #f7c800;
 }
 
-/* 頁尾 */
-.footer {
-  text-align: center;
-  padding: 30px;
-  font-size: 0.9em;
-  background-color: #000;
-  color: #666;
-  margin-top: 50px;
+/* 固定右下角 LINE 按鈕（手機用） */
+.fixed-line {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: gold;
+  color: #111;
+  font-weight: bold;
+  padding: 10px 16px;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 0 10px gold;
+  z-index: 999;
 }
 
-/* 響應式設計（手機排版支援） */
 @media (max-width: 768px) {
+  .about {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .scroll-box {
+    max-height: none;
+    overflow-y: visible;
+  }
+
   .project-grid {
     flex-direction: column;
     align-items: center;
@@ -133,4 +241,18 @@ section h2 {
   .about, .projects, .contact {
     padding: 20px;
   }
+
+  .fixed-line {
+    display: block;
+  }
+}
+
+/* 頁尾 */
+.footer {
+  text-align: center;
+  padding: 30px;
+  font-size: 0.9em;
+  background-color: #000;
+  color: #666;
+  margin-top: 50px;
 }

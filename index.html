@@ -5,13 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>掃地僧・作品集網站</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- 首頁主視覺 -->
+  <canvas id="bg-particles"></canvas>
+
   <header class="hero">
     <div class="hero-content">
       <img src="img/me-coat.jpg" alt="掃地僧個人照" class="hero-photo" />
@@ -20,47 +19,60 @@
     </div>
   </header>
 
-  <!-- 關於我區塊 -->
-  <section class="about">
-    <h2>關於我</h2>
-    <p>
-      您好，我是 74 年次的處女座男，目前定居於台中大雅，值大夜班之餘，也一直不斷精進自己。<br /><br />
-      多年來我跨足各領域，取得多張專業證照，包含天車操作、保險金融、健康管理師及社區總幹事等，涉獵廣泛，亦能靈活運用於實際生活與創作中。<br /><br />
-      作為健康管理師，我曾協助超過 <strong>200 位減重成功的朋友</strong>，從體態、習慣到身心建議，皆有長期實務經驗。<br /><br />
-      圖像創作方面，我擅長 CAD 製圖、AI 自動圖像生成、LINE 貼圖設計與 3D 建模（SketchUp），相關作品請見下方展示。<br /><br />
-      我亦研究宗教符咒與塔羅占卜，對空間與人之間的能量秩序有自己的一套理解。<br />
-      目前在台中大雅區設有個人工作室：<strong>臺中市大雅區東光路二段 1099 巷 33 號</strong>，早上可接受預約諮詢與面談。<br /><br />
-      若您有合作、委託或想認識我更多，歡迎透過 LINE 聯絡。<br />
-      加好友時請簡單說明稱呼與來源，讓我們的對話從更自然開始 ✨
-    </p>
-  </section>
-
-  <!-- 作品展示區 -->
-  <section class="projects">
-    <h2>作品展示</h2>
-    <div class="project-grid">
-      <!-- CAD 作品 -->
-      <div class="project-card">
-        <img src="img/cad-1.jpg" alt="CAD 建築設計作品" />
-        <h3>CAD 設計系列</h3>
-        <p>結構設計、立面圖與技術繪圖展示。</p>
-      </div>
+  <section class="about split-layout">
+    <div class="about-left">
+      <img src="img/me-coat.jpg" alt="掃地僧個人照" class="hero-photo side-photo" />
+      <h2>關於我</h2>
+    </div>
+    <div class="about-right scroll-box">
+      <p>
+        您好，我是 74 年次的處女座男，目前定居於台中大雅，值大夜班之餘，也一直不斷精進自己。<br /><br />
+        多年來我跨足各領域，取得多張專業證照，包含天車操作、保險金融、健康管理師及社區總幹事等，涉獵廣泛，亦能靈活運用於實際生活與創作中。<br /><br />
+        作為健康管理師，我曾協助超過 <strong>200 位減重成功的朋友</strong>，從體態、習慣到身心建議，皆有長期實務經驗。<br /><br />
+        圖像創作方面，我擅長 CAD 製圖、AI 自動圖像生成、LINE 貼圖設計與 3D 建模（SketchUp），相關作品請見下方展示。<br /><br />
+        我亦研究宗教符咒與塔羅占卜，對空間與人之間的能量秩序有自己的一套理解。<br />
+        目前在台中大雅區設有個人工作室：<strong>臺中市大雅區東光路二段 1099 巷 33 號</strong>，早上可接受預約諮詢與面談。<br /><br />
+        若您有合作、委託或想認識我更多，歡迎透過 LINE 聯絡。<br />
+        加好友時請簡單說明稱呼與來源，讓我們的對話從更自然開始 ✨
+      </p>
     </div>
   </section>
 
-  <!-- 聯絡方式 -->
+  <section class="projects">
+    <h2>作品分類</h2>
+    <div class="category-bar">
+      <div class="category" data-type="all">全部</div>
+      <div class="category" data-type="cad">CAD 設計</div>
+      <div class="category" data-type="ai">AI 圖像</div>
+      <div class="category" data-type="sketchup">SketchUp</div>
+    </div>
+
+    <div class="project-grid">
+      <!-- CAD 作品 -->
+      <div class="project-card" data-type="cad">
+        <a href="img/cad-1.jpg" target="_blank">
+          <img src="img/cad-1.jpg" alt="CAD 建築設計作品" />
+        </a>
+        <h3>CAD 設計系列</h3>
+        <p>結構設計、立面圖與技術繪圖展示。</p>
+      </div>
+
+      <!-- AI 與其他作品可日後擴充 -->
+    </div>
+  </section>
+
   <section class="contact">
     <h2>聯絡我</h2>
     <p>有興趣合作、諮詢或想認識我？歡迎透過 LINE 聯絡：</p>
-    <a class="line-button" href="https://line.me/ti/p/ineedu99" target="_blank">
-      ➤ 加我 LINE（掃地僧）
-    </a>
+    <a class="line-button" href="https://line.me/ti/p/ineedu99" target="_blank">➤ 加我 LINE（掃地僧）</a>
   </section>
 
-  <!-- 頁尾 -->
   <footer class="footer">
     <p>&copy; 2025 掃地僧．All rights reserved.</p>
   </footer>
+
+  <a class="fixed-line" href="https://line.me/ti/p/ineedu99" target="_blank">LINE 我</a>
+  <script src="js/script.js"></script>
 
 </body>
 </html>
