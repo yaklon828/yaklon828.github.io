@@ -9,37 +9,55 @@
 </head>
 <body>
 
-  <!-- 關於我區塊 -->
-  <section class="about">
-    <img src="img/me-coat.jpg" alt="掃地僧個人照" class="about-photo" />
-    <h2>關於我</h2>
-    <p>
-      我是一位結合 #健康管理、#AI設計 與 #符咒塔羅 能量的多功能創作者，朋友暱稱我「掃地僧」。目前定居於台中大雅，白天以健康管理師身分守護200+位減重好友，夜間潛心於符咒與塔羅的能量秩序研究，不斷在跨界中探索更深的可能。<br /><br />
-      我擁有天車操作、保險金融、社區總幹事與健康管理師等多張專業證照，並將實務經驗融入創作。圖像上，我擅長 CAD 製圖、AI 自動圖像生成與 3D 建模（SketchUp），每一張作品都注入溫度與思考。
-    </p>
-  </section>
+  <canvas id="bg-particles"></canvas>
 
-  <!-- 作品集區塊 -->
-  <section class="projects">
-    <h2>作品集</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <img src="img/cad-1.jpg" alt="CAD 建築設計作品" />
-        <h3>CAD 設計</h3>
-        <p>結構設計、立面圖與技術繪圖展示。</p>
-      </div>
-      <!-- 之後可依序新增更多 project-card -->
+  <!-- 關於我：左圖右文 -->
+  <section class="about split-layout">
+    <div class="about-left">
+      <img src="img/me-coat.jpg" alt="掃地僧個人照" class="hero-photo side-photo" />
+    </div>
+    <div class="about-right scroll-box">
+      <p>
+        我是一位結合 #健康管理、#AI設計 與 #符咒塔羅 能量的多功能創作者，朋友暱稱我「掃地僧」。目前定居於台中大雅，白天以健康管理師身分守護超過 <strong>200 位減重成功的朋友</strong>，夜間潛心於宗教符咒與塔羅的能量秩序研究，持續在跨界中探索更深的創作可能。<br /><br />
+        我擁有天車操作、保險金融、社區總幹事與健康管理師等多張專業證照，並將實務經驗融入生活與作品。圖像創作方面，我擅長 CAD 製圖、AI 自動圖像生成、LINE 貼圖設計與 3D 建模（SketchUp），以技術與藝術對話，為每幀影像注入溫度。
+      </p>
     </div>
   </section>
 
-  <!-- 聯絡我區塊 -->
+  <!-- 作品分類＋作品集 -->
+  <section class="projects">
+    <h2>作品分類</h2>
+    <div class="category-bar">
+      <div class="category active" data-type="all">全部</div>
+      <div class="category" data-type="cad">CAD 設計</div>
+      <div class="category" data-type="ai">AI 圖像</div>
+      <div class="category" data-type="sketchup">SketchUp</div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-card" data-type="cad">
+        <a href="img/cad-1.jpg" target="_blank">
+          <img src="img/cad-1.jpg" alt="CAD 建築設計作品" />
+        </a>
+        <h3>CAD 設計</h3>
+        <p>結構設計、立面圖與技術繪圖展示。</p>
+      </div>
+      <!-- 之後再新增 ai、sketchup 等 project-card -->
+    </div>
+  </section>
+
+  <!-- 聯絡我 -->
   <section class="contact">
     <h2>聯絡我</h2>
-    <p>有興趣合作或想更深入認識，歡迎透過 Line 聯絡我：</p>
+    <p>有興趣合作或想更深入認識，歡迎透過 LINE 聯絡我：</p>
     <a class="line-button" href="https://line.me/ti/p/ineedu99" target="_blank">
       ➤ 加我 LINE（掃地僧）
     </a>
   </section>
 
+  <!-- 手機固定 LINE 按鈕 -->
+  <a class="fixed-line" href="https://line.me/ti/p/ineedu99" target="_blank">LINE 我</a>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
