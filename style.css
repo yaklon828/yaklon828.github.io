@@ -1,0 +1,136 @@
+
+/* 網站主體字體與背景設定 */
+body {
+  margin: 0;
+  font-family: 'Noto Sans TC', sans-serif;
+  background-color: #111; /* 深黑底 */
+  color: #f0f0f0; /* 淺灰文字 */
+  line-height: 1.6;
+}
+
+/* 主視覺 Hero 區 */
+.hero {
+  background-color: #000;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero-photo {
+  max-width: 220px;
+  border-radius: 50%;
+  border: 3px solid gold;
+  margin-bottom: 20px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.hero h1 {
+  font-size: 2.5em;
+  color: gold;
+  margin-bottom: 0.3em;
+}
+
+.hero p {
+  font-size: 1.2em;
+  color: #ccc;
+}
+
+/* 各區塊標題 */
+section h2 {
+  font-size: 1.8em;
+  color: gold;
+  border-left: 5px solid gold;
+  padding-left: 10px;
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+
+/* About 區 */
+.about {
+  padding: 20px 40px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* 作品區 */
+.projects {
+  padding: 20px 40px;
+}
+
+.project-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+.project-card {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-left: 5px solid gold;
+  padding: 15px;
+  width: 280px;
+  transition: transform 0.3s;
+}
+
+.project-card:hover {
+  transform: scale(1.03);
+}
+
+.project-card img {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #333;
+}
+
+.project-card h3 {
+  margin-top: 10px;
+  color: gold;
+}
+
+/* 聯絡區 */
+.contact {
+  padding: 30px 40px;
+  text-align: center;
+}
+
+.line-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: gold;
+  color: #111;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  margin-top: 15px;
+  transition: background-color 0.3s;
+}
+
+.line-button:hover {
+  background-color: #f7c800;
+}
+
+/* 頁尾 */
+.footer {
+  text-align: center;
+  padding: 30px;
+  font-size: 0.9em;
+  background-color: #000;
+  color: #666;
+  margin-top: 50px;
+}
+
+/* 響應式設計（手機排版支援） */
+@media (max-width: 768px) {
+  .project-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-card {
+    width: 90%;
+  }
+
+  .about, .projects, .contact {
+    padding: 20px;
+  }
+}
