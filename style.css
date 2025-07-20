@@ -164,6 +164,13 @@ section h2 {
   font-size: 1.2em;
 }
 
+/* 音樂作品 iframe 播放器樣式 */
+.project-card iframe {
+  width: 100%;
+  height: 200px;
+  border: none;
+}
+
 /* ================================
    聯絡我區塊
    ================================ */
@@ -214,18 +221,26 @@ section h2 {
     align-items: center;
     text-align: center;
   }
+
   .scroll-box {
     max-height: none;
     overflow-y: visible;
   }
+
   .project-grid {
     flex-direction: column;
     align-items: center;
     gap: 15px;
   }
+
   .project-card {
     width: 90%;
   }
+
+  .project-card iframe {
+    height: 180px;
+  }
+
   .fixed-line {
     display: block;
   }
