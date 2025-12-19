@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JIU BIRD 個人品牌</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #001f3f;
+      color: white;
+    }
+    header img {
+      max-width: 150px;
+    }
+    nav {
+      margin-top: 20px;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #ffd700;
+      font-weight: bold;
+    }
+    section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .services, .portfolio {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .card img {
+      max-width: 100%;
+      border-radius: 4px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #001f3f;
+      color: white;
+    }
+    footer a {
+      color: #ffd700;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="LOGO1.JPG" alt="JIU BIRD Logo">
+  <h1>JIU BIRD 個人品牌</h1>
+  <p>工匠精神 × 靈性智慧 × 系統設計</p>
+  <nav>
+    <a href="#services">服務項目</a>
+    <a href="#portfolio">作品展示</a>
+    <a href="#contact">聯絡我</a>
+    <a href="temple.html">宮廟專頁</a>
+  </nav>
+</header>
+
+<section id="services">
+  <h2>服務項目</h2>
+  <div class="services">
+    <div class="card">
+      <h3>CleanFlow™ 自動化系統</h3>
+      <p>中小企業接單流程設計、LINE通知、工單管理。</p>
+    </div>
+    <div class="card">
+      <h3>製圖與視覺設計</h3>
+      <p>CAD / SketchUp / Blender / Revit，品牌 LOGO 與空間規劃。</p>
+    </div>
+    <div class="card">
+      <h3>微型創業輔導</h3>
+      <p>品牌定位、網站架構、SOP設計，幫助工作室與接案者。</p>
+    </div>
+    <div class="card">
+      <h3>其他服務</h3>
+      <p>數據分析、居家清潔流程、靈性玄學（獨立品牌）。</p>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <h2>作品展示</h2>
+  <div class="portfolio">
+    <div class="card">
+      <img src="1.JPG" alt="作品1">
+      <p>作品展示 1</p>
+    </div>
+    <div class="card">
+      <img src="2.JPG" alt="作品2">
+      <p>作品展示 2</p>
+    </div>
+    <div class="card">
+      <img src="3.JPG" alt="作品3">
+      <p>作品展示 3</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>聯絡我</h2>
+  <p>📱 LINE：點我加入好友</p>
+  <p>📧 Email：jiubird@example.com</p>
+  <p>📝 <a href="https://forms.gle/xxxxxx" target="_blank">填寫表單</a></p>
+</section>
+
+<footer>
+  <p>© 2025 JIU BIRD 個人品牌</p>
+  <p><a href="temple.html">前往宮廟專頁</a></p>
+</footer>
+
+</body>
+</html>
