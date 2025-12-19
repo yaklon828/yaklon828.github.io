@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作品分類展示 - JIU BIRD</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: #001f3f;
+      color: white;
+    }
+    nav {
+      background-color: #001f3f;
+      padding: 15px;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #ffd700;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: white;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      color: #001f3f;
+      margin-bottom: 10px;
+    }
+    .scroll-gallery {
+      display: flex;
+      overflow-x: auto;
+      gap: 12px;
+      padding: 10px 0;
+      scroll-snap-type: x mandatory;
+    }
+    .scroll-gallery img {
+      flex: 0 0 auto;
+      width: 300px;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 8px;
+      scroll-snap-align: start;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .scroll-gallery::-webkit-scrollbar {
+      height: 6px;
+    }
+    .scroll-gallery::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 3px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #001f3f;
+      color: white;
+    }
+    footer a {
+      color: #ffd700;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>作品分類展示</h1>
+  <p>JIU BIRD 的多元創作</p>
+</header>
+
+<!-- 統一導覽列 -->
+<nav>
+  <a href="index.html">首頁</a>
+  <a href="cleanflow.html">CleanFlow™</a>
+  <a href="about.html">關於我</a>
+  <a href="portfolio.html">作品展示</a>
+  <a href="startup.html">微型創業輔導</a>
+  <a href="temple.html">宮廟專頁</a>
+  <a href="contact.html">聯絡我</a>
+</nav>
+
+<section id="2d">
+  <h2>2D製圖</h2>
+  <div class="scroll-gallery">
+    <img src="IMG/2d01.jpg" alt="CAD作品">
+    <img src="IMG/2d02.jpg" alt="SketchUp作品">
+    <img src="IMG/2d03.jpg" alt="平面設計">
+  </div>
+</section>
+
+<section id="3d">
+  <h2>3D製圖</h2>
+  <div class="scroll-gallery">
+    <img src="IMG/3d01.jpg" alt="Blender作品">
+    <img src="IMG/3d02.jpg" alt="Revit作品">
+    <img src="IMG/3d03.jpg" alt="建模展示">
+  </div>
+</section>
+
+<section id="health">
+  <h2>健康管理師</h2>
+  <div class="scroll-gallery">
+    <img src="IMG/health01.jpg" alt="證照展示">
+    <img src="IMG/health02.jpg" alt="流程設計">
+  </div>
+</section>
+
+<section id="ritual">
+  <h2>科儀文化</h2>
+  <div class="scroll-gallery">
+    <img src="IMG/ritual01.jpg" alt="符錄">
+    <img src="IMG/ritual02.jpg" alt="科儀展示">
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 JIU BIRD 個人品牌</p>
+  <p><a href="index.html">返回首頁</a></p>
+</footer>
+
+</body>
+</html>
