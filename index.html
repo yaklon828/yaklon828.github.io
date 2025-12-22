@@ -4,134 +4,73 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JIU BIRD｜台中中小企業流程顧問｜CleanFlow™ 自動化｜品牌設計與3D呈現</title>
-  <meta name="description" content="JIU BIRD 專注於台灣中小企業：CleanFlow™ 自動化流程、網站與品牌設計、CAD/SketchUp/Blender 3D 呈現、微型創業輔導。以工匠精神 + 靈性智慧 + 系統設計，幫你快速變現。">
+  <meta name="description" content="JIU BIRD（順隆）：CleanFlow™ 自動化流程、網站與品牌設計、CAD/SketchUp/Blender 3D 呈現、微型創業輔導。以工匠精神 + 靈性智慧 + 系統設計，幫你快速變現。">
   <meta name="keywords" content="台中流程顧問, 中小企業自動化, CleanFlow, 系統設計, 品牌設計, 3D呈現, SketchUp, Blender, 宮廟符咒設計">
-  <link rel="canonical" href="https://你的網域/">
+  <link rel="canonical" href="https://yaklon828.github.io/">
   <meta name="robots" content="index,follow">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="JIU BIRD｜中小企業流程顧問與品牌設計">
   <meta property="og:description" content="CleanFlow™ 自動化、品牌與3D呈現，讓你的生意快速變現。">
-  <meta property="og:url" content="https://你的網域/">
-  <meta property="og:image" content="https://你的網域/IMG/og-cover.webp">
+  <meta property="og:url" content="https://yaklon828.github.io/">
+  <meta property="og:image" content="https://yaklon828.github.io/IMG/og-cover.webp">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="JIU BIRD｜中小企業流程顧問與品牌設計">
   <meta name="twitter:description" content="CleanFlow™ 自動化、品牌與3D呈現，讓你的生意快速變現。">
-  <meta name="twitter:image" content="https://你的網域/IMG/og-cover.webp">
+  <meta name="twitter:image" content="https://yaklon828.github.io/IMG/og-cover.webp">
 
-  <!-- Fonts (preconnect + modern TC font) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- model-viewer for GLB -->
+  <!-- model-viewer -->
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
   <style>
-    :root {
-      --brand-blue: #001f3f;
-      --brand-gold: #ffd700;
-      --text: #333;
-      --bg: #f7f8fa;
-      --card: #ffffff;
-    }
-    * { box-sizing: border-box; }
-    body {
-      font-family: 'Noto Sans TC', Arial, sans-serif;
-      margin: 0; color: var(--text); background: var(--bg);
-    }
-    header {
-      background: linear-gradient(135deg, #001531 0%, #003060 100%);
-      color: #fff; padding: 24px 16px; text-align: center;
-      border-bottom: 1px solid rgba(255,255,255,0.15);
-    }
-    header .brand {
-      display: inline-flex; align-items: center; gap: 12px; margin-bottom: 8px;
-    }
-    header img { width: 64px; height: 64px; border-radius: 8px; object-fit: cover; }
-    header h1 { margin: 8px 0 4px; font-weight: 700; font-size: 24px; letter-spacing: 0.5px; }
-    header p { margin: 0; opacity: 0.9; }
-
-    nav {
-      background: var(--brand-blue);
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
-      padding: 12px 16px; position: sticky; top: 0; z-index: 10;
-    }
-    nav a {
-      color: var(--brand-gold); text-decoration: none; font-weight: 600;
-      padding: 8px 12px; border-radius: 6px; transition: all .2s ease;
-    }
-    nav a:hover { color: #fff; background: rgba(255,255,255,0.08); }
-
-    .section { padding: 40px 20px; max-width: 1100px; margin: 0 auto; }
-
-    /* Hero with CAD grid + 3D logo */
-    .hero {
-      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 24px;
-      align-items: center;
-    }
-    .cad-bg {
-      width: 100%; height: 360px; border-radius: 12px; overflow: hidden;
-      background-color: #f0f0f0;
-      background-image: linear-gradient(#d3d3d3 1px, transparent 1px),
-                        linear-gradient(90deg, #d3d3d3 1px, transparent 1px);
-      background-size: 20px 20px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-      border: 1px solid #e2e2e2;
-    }
-    model-viewer { width: 100%; height: 100%; background-color: transparent; }
-
-    .hero-copy h2 { margin: 0 0 12px; font-size: 28px; }
-    .hero-copy p { margin: 0 0 16px; line-height: 1.7; }
-    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 10px 16px; border-radius: 8px; font-weight: 700; text-decoration: none;
-      transition: all .2s ease;
-    }
-    .btn-primary { background: var(--brand-gold); color: #1b1b1b; }
-    .btn-primary:hover { filter: brightness(1.05); transform: translateY(-1px); }
-    .btn-outline { border: 2px solid var(--brand-gold); color: var(--brand-gold); }
-    .btn-outline:hover { background: rgba(255,215,0,0.12); }
-
-    .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-    .card {
-      background: var(--card); border: 1px solid #e9e9e9; border-radius: 12px;
-      padding: 18px; box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-    .card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,0.12); }
-    .card h3 { margin: 0 0 8px; font-size: 18px; }
-    .card p { margin: 0 0 12px; color: #555; }
-    .card a { color: var(--brand-blue); font-weight: 700; text-decoration: none; }
-
-    .partners-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-    .partner-card { text-align: center; background: var(--card); border: 1px solid #e9e9e9; border-radius: 12px; padding: 16px; }
-    .partner-card img { width: 100%; height: 120px; object-fit: cover; border-radius: 8px; }
-
-    footer {
-      text-align: center; padding: 24px 16px;
-      background: var(--brand-blue); color: #fff; margin-top: 20px;
-    }
-    footer a { color: var(--brand-gold); text-decoration: none; font-weight: 700; }
-
-    /* Responsive */
-    @media (max-width: 980px) {
-      .hero { grid-template-columns: 1fr; }
-      .cards, .partners-grid { grid-template-columns: repeat(2, 1fr); }
-      .cad-bg { height: 300px; }
-    }
-    @media (max-width: 640px) {
-      .cards, .partners-grid { grid-template-columns: 1fr; }
-      .cad-bg { height: 260px; }
-      nav { gap: 6px; }
-    }
-    /* Utility */
-    .muted { color: #777; }
-    img[loading="lazy"] { filter: blur(0.001px); }
+    :root { --brand-blue:#001f3f; --brand-gold:#ffd700; --text:#333; --bg:#f7f8fa; --card:#fff; }
+    *{box-sizing:border-box}
+    body{font-family:'Noto Sans TC',Arial,sans-serif;margin:0;color:var(--text);background:var(--bg)}
+    header{background:linear-gradient(135deg,#001531 0%,#003060 100%);color:#fff;padding:24px 16px;text-align:center;border-bottom:1px solid rgba(255,255,255,.15)}
+    header .brand{display:inline-flex;align-items:center;gap:12px;margin-bottom:8px}
+    header img{width:64px;height:64px;border-radius:8px;object-fit:cover}
+    header h1{margin:8px 0 4px;font-weight:700;font-size:24px;letter-spacing:.5px}
+    header p{margin:0;opacity:.9}
+    nav{background:var(--brand-blue);display:flex;flex-wrap:wrap;justify-content:center;gap:12px;padding:12px 16px;position:sticky;top:0;z-index:10}
+    nav a{color:var(--brand-gold);text-decoration:none;font-weight:600;padding:8px 12px;border-radius:6px;transition:all .2s}
+    nav a:hover{color:#fff;background:rgba(255,255,255,.08)}
+    .section{padding:40px 20px;max-width:1100px;margin:0 auto}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
+    .cad-bg{width:100%;height:360px;border-radius:12px;overflow:hidden;background-color:#f0f0f0;
+      background-image:linear-gradient(#d3d3d3 1px,transparent 1px),linear-gradient(90deg,#d3d3d3 1px,transparent 1px);
+      background-size:20px 20px;box-shadow:0 8px 24px rgba(0,0,0,.12);border:1px solid #e2e2e2}
+    model-viewer{width:100%;height:100%;background-color:transparent}
+    .hero-copy h2{margin:0 0 12px;font-size:28px}
+    .hero-copy p{margin:0 0 16px;line-height:1.7}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:8px;font-weight:700;text-decoration:none;transition:all .2s}
+    .btn-primary{background:var(--brand-gold);color:#1b1b1b}
+    .btn-primary:hover{filter:brightness(1.05);transform:translateY(-1px)}
+    .btn-outline{border:2px solid var(--brand-gold);color:var(--brand-gold)}
+    .btn-outline:hover{background:rgba(255,215,0,.12)}
+    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .card{background:var(--card);border:1px solid #e9e9e9;border-radius:12px;padding:18px;box-shadow:0 6px 16px rgba(0,0,0,.08);transition:transform .2s,box-shadow .2s}
+    .card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.12)}
+    .card h3{margin:0 0 8px;font-size:18px}
+    .card p{margin:0 0 12px;color:#555}
+    .card a{color:var(--brand-blue);font-weight:700;text-decoration:none}
+    .partners-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .partner-card{text-align:center;background:var(--card);border:1px solid #e9e9e9;border-radius:12px;padding:16px}
+    .partner-card img{width:100%;height:120px;object-fit:cover;border-radius:8px}
+    footer{text-align:center;padding:24px 16px;background:var(--brand-blue);color:#fff;margin-top:20px}
+    footer a{color:var(--brand-gold);text-decoration:none;font-weight:700}
+    @media (max-width:980px){.hero{grid-template-columns:1fr}.cards,.partners-grid{grid-template-columns:repeat(2,1fr)}.cad-bg{height:300px}}
+    @media (max-width:640px){.cards,.partners-grid{grid-template-columns:1fr}.cad-bg{height:260px}nav{gap:6px}}
+    .muted{color:#777}
+    img[loading="lazy"]{filter:blur(.001px)}
   </style>
 </head>
 <body>
@@ -141,7 +80,7 @@
     <img src="IMG/logo1.webp" alt="JIU BIRD Logo" loading="lazy">
     <div>
       <h1>JIU BIRD 個人品牌</h1>
-      <p>工匠精神 × 靈性智慧 × 系統設計｜在地中小企業顧問</p>
+      <p>工匠精神 × 靈性智慧 × 系統設計｜在地中小企業顧問（台中）</p>
     </div>
   </div>
 </header>
@@ -159,16 +98,15 @@
 <section class="section hero" aria-label="主視覺">
   <div class="cad-bg">
     <model-viewer src="models/LOGO01.glb"
-                  auto-rotate rotation-per-second="30deg"
-                  camera-controls touch-action="pan-y"
-                  shadow-intensity="1" shadow-softness="0.85"
-                  environment-image="neutral"
-                  exposure="1.1" ar>
+      auto-rotate rotation-per-second="30deg"
+      camera-controls touch-action="pan-y"
+      shadow-intensity="1" shadow-softness="0.85"
+      environment-image="neutral" exposure="1.1" ar>
     </model-viewer>
   </div>
   <div class="hero-copy">
     <h2>中小企業快速變現的系統化夥伴</h2>
-    <p>CleanFlow™ 自動化 + 品牌與3D呈現 + SOP 設計。把你的接單、通知、工單管理與網站流量串起來，少走彎路、直接賺到錢。</p>
+    <p>CleanFlow™ 自動化 + 品牌與3D呈現 + SOP 設計。把接單、通知、工單管理與網站流量串起來，少走彎路、直接賺到錢。</p>
     <div class="muted">台中在地｜宮廟文化融入現代設計｜符咒浮雕模組可客製</div>
     <div class="cta-row" style="margin-top:12px;">
       <a class="btn btn-primary" href="contact.html">預約30分鐘諮詢</a>
@@ -234,10 +172,16 @@
 <section class="section" id="contact">
   <h2>聯絡我</h2>
   <p>填寫表單或直接加 LINE，三個工作日內回覆。</p>
-  <div class="cta-row">
+  <div class="cta-row" style="margin-bottom:16px;">
     <a class="btn btn-primary" href="contact.html">前往聯絡頁 →</a>
-    <a class="btn btn-outline" href="https://line.me/R/ti/p/你的LineID" target="_blank" rel="noopener">加 LINE 詢價</a>
+    <a class="btn btn-outline" href="https://line.me/R/ti/p/ineedu99" target="_blank" rel="noopener">加 LINE 詢價（ID：ineedu99）</a>
+    <a class="btn btn-outline" href="https://page.line.me/390ltckh" target="_blank" rel="noopener">官方 LINE（@390ltckh）</a>
   </div>
+  <picture>
+    <source srcset="https://qr-official.line.me/gs/M_390ltckh_GW.png?oat_content=qr" type="image/png">
+    <img src="https://qr-official.line.me/gs/M_390ltckh_GW.png?oat_content=qr" alt="官方 LINE 加好友 QR Code" width="180" height="180" loading="lazy">
+  </picture>
+  <p class="muted">Email：<a href="mailto:yaklon828@gmail.com">yaklon828@gmail.com</a> ｜ 手機：<a href="tel:+886966027828">0966-027-828</a>（順隆）</p>
 </section>
 
 <footer>
@@ -245,25 +189,28 @@
   <p><a href="index2.html">前往宮廟專頁</a></p>
 </footer>
 
-<!-- Structured Data: Person + Organization + Services -->
+<!-- Structured Data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Person",
-      "name": "JIU BIRD",
+      "name": "JIU BIRD（順隆）",
       "jobTitle": "中小企業流程顧問與多元創作者",
-      "url": "https://你的網域/",
+      "url": "https://yaklon828.github.io/",
+      "email": "mailto:yaklon828@gmail.com",
+      "telephone": "+886966027828",
       "knowsAbout": ["CleanFlow 自動化", "品牌設計", "3D 呈現", "SOP 設計", "宮廟文化設計"],
-      "address": { "@type": "PostalAddress", "addressLocality": "台中市" }
+      "address": { "@type": "PostalAddress", "addressLocality": "台中市" },
+      "sameAs": ["https://page.line.me/390ltckh"]
     },
     {
       "@type": "Organization",
       "name": "JIU BIRD Studio",
-      "url": "https://你的網域/",
-      "logo": "https://你的網域/IMG/logo1.webp",
-      "sameAs": []
+      "url": "https://yaklon828.github.io/",
+      "logo": "https://yaklon828.github.io/IMG/logo1.webp",
+      "sameAs": ["https://page.line.me/390ltckh"]
     },
     {
       "@type": "Service",
@@ -271,7 +218,7 @@
       "provider": { "@type": "Organization", "name": "JIU BIRD Studio" },
       "areaServed": "台灣",
       "serviceType": "中小企業接單流程設計、LINE 通知、工單管理",
-      "url": "https://你的網域/cleanflow.html"
+      "url": "https://yaklon828.github.io/cleanflow.html"
     }
   ]
 }
