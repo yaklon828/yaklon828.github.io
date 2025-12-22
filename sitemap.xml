@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://yaklon828.github.io/</loc>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://yaklon828.github.io/cleanflow.html</loc>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://yaklon828.github.io/about.html</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://yaklon828.github.io/works.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://yaklon828.github.io/startup.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://yaklon828.github.io/index2.html</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://yaklon828.github.io/contact.html</loc>
+    <priority>0.60</priority>
+  </url>
+</urlset>

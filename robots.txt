@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yaklon828.github.io/sitemap.xml
