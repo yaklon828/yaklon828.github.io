@@ -3,164 +3,279 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JIU BIRD 個人品牌</title>
+  <title>JIU BIRD｜台中中小企業流程顧問｜CleanFlow™ 自動化｜品牌設計與3D呈現</title>
+  <meta name="description" content="JIU BIRD 專注於台灣中小企業：CleanFlow™ 自動化流程、網站與品牌設計、CAD/SketchUp/Blender 3D 呈現、微型創業輔導。以工匠精神 + 靈性智慧 + 系統設計，幫你快速變現。">
+  <meta name="keywords" content="台中流程顧問, 中小企業自動化, CleanFlow, 系統設計, 品牌設計, 3D呈現, SketchUp, Blender, 宮廟符咒設計">
+  <link rel="canonical" href="https://你的網域/">
+  <meta name="robots" content="index,follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="JIU BIRD｜中小企業流程顧問與品牌設計">
+  <meta property="og:description" content="CleanFlow™ 自動化、品牌與3D呈現，讓你的生意快速變現。">
+  <meta property="og:url" content="https://你的網域/">
+  <meta property="og:image" content="https://你的網域/IMG/og-cover.webp">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="JIU BIRD｜中小企業流程顧問與品牌設計">
+  <meta name="twitter:description" content="CleanFlow™ 自動化、品牌與3D呈現，讓你的生意快速變現。">
+  <meta name="twitter:image" content="https://你的網域/IMG/og-cover.webp">
+
+  <!-- Fonts (preconnect + modern TC font) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- model-viewer for GLB -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
   <style>
+    :root {
+      --brand-blue: #001f3f;
+      --brand-gold: #ffd700;
+      --text: #333;
+      --bg: #f7f8fa;
+      --card: #ffffff;
+    }
+    * { box-sizing: border-box; }
     body {
-      font-family: Arial, sans-serif;
-      margin: 0; padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
+      font-family: 'Noto Sans TC', Arial, sans-serif;
+      margin: 0; color: var(--text); background: var(--bg);
     }
     header {
-      text-align: center;
-      padding: 20px;
-      background-color: #001f3f;
-      color: white;
+      background: linear-gradient(135deg, #001531 0%, #003060 100%);
+      color: #fff; padding: 24px 16px; text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
     }
-    header img {
-      max-width: 120px;
+    header .brand {
+      display: inline-flex; align-items: center; gap: 12px; margin-bottom: 8px;
     }
+    header img { width: 64px; height: 64px; border-radius: 8px; object-fit: cover; }
+    header h1 { margin: 8px 0 4px; font-weight: 700; font-size: 24px; letter-spacing: 0.5px; }
+    header p { margin: 0; opacity: 0.9; }
+
     nav {
-      background-color: #001f3f;
-      padding: 15px;
-      text-align: center;
+      background: var(--brand-blue);
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
+      padding: 12px 16px; position: sticky; top: 0; z-index: 10;
     }
     nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #ffd700;
-      font-weight: bold;
+      color: var(--brand-gold); text-decoration: none; font-weight: 600;
+      padding: 8px 12px; border-radius: 6px; transition: all .2s ease;
     }
-    nav a:hover {
-      color: white;
+    nav a:hover { color: #fff; background: rgba(255,255,255,0.08); }
+
+    .section { padding: 40px 20px; max-width: 1100px; margin: 0 auto; }
+
+    /* Hero with CAD grid + 3D logo */
+    .hero {
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 24px;
+      align-items: center;
     }
-    section {
-      padding: 40px 20px;
-      text-align: center;
+    .cad-bg {
+      width: 100%; height: 360px; border-radius: 12px; overflow: hidden;
+      background-color: #f0f0f0;
+      background-image: linear-gradient(#d3d3d3 1px, transparent 1px),
+                        linear-gradient(90deg, #d3d3d3 1px, transparent 1px);
+      background-size: 20px 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      border: 1px solid #e2e2e2;
     }
-    .services {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
+    model-viewer { width: 100%; height: 100%; background-color: transparent; }
+
+    .hero-copy h2 { margin: 0 0 12px; font-size: 28px; }
+    .hero-copy p { margin: 0 0 16px; line-height: 1.7; }
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 16px; border-radius: 8px; font-weight: 700; text-decoration: none;
+      transition: all .2s ease;
     }
+    .btn-primary { background: var(--brand-gold); color: #1b1b1b; }
+    .btn-primary:hover { filter: brightness(1.05); transform: translateY(-1px); }
+    .btn-outline { border: 2px solid var(--brand-gold); color: var(--brand-gold); }
+    .btn-outline:hover { background: rgba(255,215,0,0.12); }
+
+    .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
     .card {
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 20px;
-      width: 250px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      background: var(--card); border: 1px solid #e9e9e9; border-radius: 12px;
+      padding: 18px; box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      transition: transform .2s ease, box-shadow .2s ease;
     }
-    .card img {
-      max-width: 100%;
-      border-radius: 4px;
-    }
-    .partners {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    .partners .card {
-      width: 220px;
-      text-align: center;
-    }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,0.12); }
+    .card h3 { margin: 0 0 8px; font-size: 18px; }
+    .card p { margin: 0 0 12px; color: #555; }
+    .card a { color: var(--brand-blue); font-weight: 700; text-decoration: none; }
+
+    .partners-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .partner-card { text-align: center; background: var(--card); border: 1px solid #e9e9e9; border-radius: 12px; padding: 16px; }
+    .partner-card img { width: 100%; height: 120px; object-fit: cover; border-radius: 8px; }
+
     footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #001f3f;
-      color: white;
+      text-align: center; padding: 24px 16px;
+      background: var(--brand-blue); color: #fff; margin-top: 20px;
     }
-    footer a {
-      color: #ffd700;
-      text-decoration: none;
+    footer a { color: var(--brand-gold); text-decoration: none; font-weight: 700; }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: 1fr; }
+      .cards, .partners-grid { grid-template-columns: repeat(2, 1fr); }
+      .cad-bg { height: 300px; }
     }
+    @media (max-width: 640px) {
+      .cards, .partners-grid { grid-template-columns: 1fr; }
+      .cad-bg { height: 260px; }
+      nav { gap: 6px; }
+    }
+    /* Utility */
+    .muted { color: #777; }
+    img[loading="lazy"] { filter: blur(0.001px); }
   </style>
 </head>
 <body>
 
 <header>
-  <img src="IMG/logo1.jpg" alt="JIU BIRD Logo">
-  <h1>JIU BIRD 個人品牌</h1>
-  <p>工匠精神 × 靈性智慧 × 系統設計</p>
+  <div class="brand">
+    <img src="IMG/logo1.webp" alt="JIU BIRD Logo" loading="lazy">
+    <div>
+      <h1>JIU BIRD 個人品牌</h1>
+      <p>工匠精神 × 靈性智慧 × 系統設計｜在地中小企業顧問</p>
+    </div>
+  </div>
 </header>
 
-<!-- 導覽列 -->
 <nav>
   <a href="index.html">首頁</a>
   <a href="cleanflow.html">CleanFlow™</a>
   <a href="about.html">關於我</a>
   <a href="works.html">作品分類</a>
   <a href="startup.html">微型創業輔導</a>
-  <a href="index2.html">宮廟專頁</a> <!-- 改成 index2.html -->
+  <a href="index2.html">宮廟專頁</a>
   <a href="contact.html">聯絡我</a>
 </nav>
 
-<section id="services">
-  <h2>服務項目</h2>
-  <div class="services">
-    <div class="card">
-      <h3>CleanFlow™ 自動化系統</h3>
-      <p>中小企業接單流程設計、LINE通知、工單管理。</p>
-      <p><a href="cleanflow.html">了解更多 →</a></p>
-    </div>
-    <div class="card">
-      <h3>製圖與視覺設計</h3>
-      <p>CAD / SketchUp / Blender / Revit，品牌 LOGO 與空間規劃。</p>
-      <p><a href="works.html#2d">作品分類 →</a></p>
-    </div>
-    <div class="card">
-      <h3>微型創業輔導</h3>
-      <p>品牌定位、網站架構、SOP設計，幫助工作室與接案者。</p>
-      <p><a href="startup.html">了解更多 →</a></p>
-    </div>
-    <div class="card">
-      <h3>其他服務</h3>
-      <p>數據分析、居家清潔流程、靈性玄學（獨立品牌）。</p>
+<section class="section hero" aria-label="主視覺">
+  <div class="cad-bg">
+    <model-viewer src="models/LOGO01.glb"
+                  auto-rotate rotation-per-second="30deg"
+                  camera-controls touch-action="pan-y"
+                  shadow-intensity="1" shadow-softness="0.85"
+                  environment-image="neutral"
+                  exposure="1.1" ar>
+    </model-viewer>
+  </div>
+  <div class="hero-copy">
+    <h2>中小企業快速變現的系統化夥伴</h2>
+    <p>CleanFlow™ 自動化 + 品牌與3D呈現 + SOP 設計。把你的接單、通知、工單管理與網站流量串起來，少走彎路、直接賺到錢。</p>
+    <div class="muted">台中在地｜宮廟文化融入現代設計｜符咒浮雕模組可客製</div>
+    <div class="cta-row" style="margin-top:12px;">
+      <a class="btn btn-primary" href="contact.html">預約30分鐘諮詢</a>
+      <a class="btn btn-outline" href="cleanflow.html">了解 CleanFlow™ →</a>
     </div>
   </div>
 </section>
 
-<section id="partners">
-  <h2>合作專案</h2>
-  <div class="partners">
+<section class="section" id="services">
+  <h2>服務項目</h2>
+  <div class="cards">
     <div class="card">
-      <a href="https://yaklon829.github.io/Bin/" target="_blank">
-        <img src="IMG/JIAO-Logo.png" alt="焦來雅合作專案">
+      <h3>CleanFlow™ 自動化</h3>
+      <p>台灣中小企業接單流程設計、LINE 通知、工單與回訪。三週內可上線。</p>
+      <p><a href="cleanflow.html">方案與價格 →</a></p>
+      <p class="muted">關鍵字：中小企業自動化、工單管理、LINE通知</p>
+    </div>
+    <div class="card">
+      <h3>品牌與視覺設計</h3>
+      <p>Logo、網站、icon 系統、一致性識別，強化信任與轉換。</p>
+      <p><a href="works.html#brand">設計作品 →</a></p>
+      <p class="muted">關鍵字：品牌設計、網站設計、識別系統</p>
+    </div>
+    <div class="card">
+      <h3>3D 呈現與空間</h3>
+      <p>CAD/SketchUp/Blender/Revit，符咒浮雕、產品展示與場景渲染。</p>
+      <p><a href="works.html#3d">3D 案例 →</a></p>
+      <p class="muted">關鍵字：SketchUp, Blender, 浮雕</p>
+    </div>
+    <div class="card">
+      <h3>微型創業輔導</h3>
+      <p>SOP、網站架構與話術，線上+線下整合，三階段拉新＋留舊。</p>
+      <p><a href="startup.html">輔導流程 →</a></p>
+      <p class="muted">關鍵字：創業輔導、SOP設計、在地顧問</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="partners">
+  <h2>合作專案</h2>
+  <div class="partners-grid">
+    <div class="partner-card">
+      <a href="https://yaklon829.github.io/Bin/" target="_blank" rel="noopener">
+        <img src="IMG/JIAO-Logo.webp" alt="焦來雅合作專案" loading="lazy">
       </a>
       <p>焦來雅 JIAOLAIYA</p>
     </div>
-    <div class="card">
-      <a href="合作品牌連結" target="_blank">
-        <img src="IMG/partner2.jpg" alt="合作品牌2">
-      </a>
+    <div class="partner-card">
+      <img src="IMG/partner2.webp" alt="合作品牌 2" loading="lazy">
       <p>合作品牌 2</p>
     </div>
-    <div class="card">
-      <a href="合作品牌連結" target="_blank">
-        <img src="IMG/partner3.jpg" alt="合作品牌3">
-      </a>
+    <div class="partner-card">
+      <img src="IMG/partner3.webp" alt="合作品牌 3" loading="lazy">
       <p>合作品牌 3</p>
     </div>
-    <div class="card">
-      <a href="合作品牌連結" target="_blank">
-        <img src="IMG/partner4.jpg" alt="合作品牌4">
-      </a>
+    <div class="partner-card">
+      <img src="IMG/partner4.webp" alt="合作品牌 4" loading="lazy">
       <p>合作品牌 4</p>
     </div>
   </div>
 </section>
 
-<section id="contact">
+<section class="section" id="contact">
   <h2>聯絡我</h2>
-  <p><a href="contact.html">前往聯絡專頁 →</a></p>
+  <p>填寫表單或直接加 LINE，三個工作日內回覆。</p>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="contact.html">前往聯絡頁 →</a>
+    <a class="btn btn-outline" href="https://line.me/R/ti/p/你的LineID" target="_blank" rel="noopener">加 LINE 詢價</a>
+  </div>
 </section>
 
 <footer>
   <p>© 2025 JIU BIRD 個人品牌</p>
-  <p><a href="index2.html">前往宮廟專頁</a></p> <!-- 改成 index2.html -->
+  <p><a href="index2.html">前往宮廟專頁</a></p>
 </footer>
+
+<!-- Structured Data: Person + Organization + Services -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "name": "JIU BIRD",
+      "jobTitle": "中小企業流程顧問與多元創作者",
+      "url": "https://你的網域/",
+      "knowsAbout": ["CleanFlow 自動化", "品牌設計", "3D 呈現", "SOP 設計", "宮廟文化設計"],
+      "address": { "@type": "PostalAddress", "addressLocality": "台中市" }
+    },
+    {
+      "@type": "Organization",
+      "name": "JIU BIRD Studio",
+      "url": "https://你的網域/",
+      "logo": "https://你的網域/IMG/logo1.webp",
+      "sameAs": []
+    },
+    {
+      "@type": "Service",
+      "name": "CleanFlow™ 自動化流程",
+      "provider": { "@type": "Organization", "name": "JIU BIRD Studio" },
+      "areaServed": "台灣",
+      "serviceType": "中小企業接單流程設計、LINE 通知、工單管理",
+      "url": "https://你的網域/cleanflow.html"
+    }
+  ]
+}
+</script>
 
 </body>
 </html>
