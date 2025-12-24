@@ -144,3 +144,61 @@
     </div>
   </div>
 </section>
+<!-- 跑馬燈（公開區） -->
+<div class="marquee">
+  <div id="marquee-strip" class="marquee-strip"></div>
+</div>
+
+<!-- 會員互動（訪客可看牆，登入後才可互動） -->
+<section class="section" id="member">
+  <h2>會員登入與互動</h2>
+
+  <!-- 登入區 -->
+  <div id="login">
+    <input id="memberId" placeholder="輸入你的會員ID（Email 或 Google UID）" />
+    <button id="btnLogin">登入</button>
+  </div>
+
+  <!-- 註冊區 -->
+  <div id="register">
+    <button id="btnGoogleRegister">用 Google 註冊</button>
+    <div id="emailRegister">
+      <input id="regEmail" placeholder="輸入 Email">
+      <input id="regPassword" type="password" placeholder="輸入密碼 (至少7字)">
+      <button id="btnEmailRegister">用 Email 註冊</button>
+    </div>
+  </div>
+
+  <!-- 登入後顯示會員資料 -->
+  <div id="profile" style="display:none;">
+    <div class="badge">
+      <span id="icon">👑</span> <span id="rank"></span>
+    </div>
+    <div class="name" id="name"></div>
+    <div class="spend">累計消費：<span id="spend"></span> 元</div>
+    <img id="avatar" src="" alt="頭像" />
+  </div>
+
+  <!-- 碎碎念互動區（登入後才顯示） -->
+  <div id="chatter" style="display:none;">
+    <textarea id="content" placeholder="碎碎念...一行一則，多行將拆成多則"></textarea>
+    <button id="post">發布</button>
+  </div>
+
+  <!-- 留言牆（公開，只讀） -->
+  <div id="feed"></div>
+</section>
+
+<!-- 頁尾 -->
+<footer class="section">
+  <p class="muted">© 2025 JIU BIRD｜CleanFlow™｜系統設計與品牌呈現</p>
+</footer>
+
+<!-- Google 登入 SDK -->
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<!-- JWT decode 套件 -->
+<script src="https://cdn.jsdelivr.net/npm/jwt-decode@3/build/jwt-decode.min.js"></script>
+<!-- 外部 JS（一定要在 body 最底部） -->
+<script src="script.js"></script>
+</body>
+</html>
