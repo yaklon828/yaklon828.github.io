@@ -2,28 +2,43 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <title>宮廷會員系統</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JIU BIRD｜台中中小企業流程顧問｜CleanFlow™ 自動化｜品牌設計與3D呈現</title>
+  <meta name="description" content="JIU BIRD（順隆）：CleanFlow™ 自動化流程、網站與品牌設計、CAD/SketchUp/Blender 3D 呈現、微型創業輔導。">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="login">
-  <input id="memberId" placeholder="輸入你的會員ID (Email或LINE UID)" />
-  <button id="btnLogin">登入</button>
-</div>
+<header> ...原本的品牌區塊... </header>
+<nav> ...原本的導覽列... </nav>
+<section class="section hero"> ...原本的主視覺... </section>
+<section class="section" id="services"> ...原本的服務項目... </section>
+<section class="section" id="partners"> ...原本的合作專案... </section>
 
-<div id="profile" style="display:none;">
-  <div class="badge"><span id="icon">👑</span> <span id="rank"></span></div>
-  <div class="name" id="name"></div>
-  <div class="spend">累計消費：<span id="spend"></span> 元</div>
-  <img id="avatar" src="" alt="頭像" />
-</div>
+<!-- 新增會員模組 -->
+<section class="section" id="member">
+  <h2>會員登入與互動</h2>
+  <div id="login">
+    <input id="memberId" placeholder="輸入你的會員ID (Email)" />
+    <button id="btnLogin">登入</button>
+  </div>
 
-<div id="chatter">
-  <textarea id="content" placeholder="碎碎念..."></textarea>
-  <button id="post">發布</button>
-  <div id="feed"></div>
-</div>
+  <div id="profile" style="display:none;">
+    <div class="badge"><span id="icon">👑</span> <span id="rank"></span></div>
+    <div class="name" id="name"></div>
+    <div class="spend">累計消費：<span id="spend"></span> 元</div>
+    <img id="avatar" src="" alt="頭像" />
+  </div>
+
+  <div id="chatter">
+    <textarea id="content" placeholder="碎碎念..."></textarea>
+    <button id="post">發布</button>
+    <div id="feed"></div>
+  </div>
+</section>
+
+<section class="section" id="contact"> ...原本的聯絡我... </section>
+<footer> ...原本的頁尾... </footer>
 
 <script src="script.js"></script>
 </body>
