@@ -135,5 +135,27 @@
 <!-- 🔥 新增會員模組 -->
 <section class="section" id="member">
   <h2>會員登入與互動</h2>
+
+  <!-- 登入區 -->
   <div id="login">
-    <input id="memberId" placeholder="輸入你的會員
+    <input id="memberId" placeholder="輸入你的會員ID（Email 或 LINE UID）" />
+    <button id="btnLogin">登入</button>
+  </div>
+
+  <!-- 登入後顯示會員資料 -->
+  <div id="profile" style="display:none;">
+    <div class="badge">
+      <span id="icon">👑</span> <span id="rank"></span>
+    </div>
+    <div class="name" id="name"></div>
+    <div class="spend">累計消費：<span id="spend"></span> 元</div>
+    <img id="avatar" src="" alt="頭像" />
+  </div>
+
+  <!-- 碎碎念互動區 -->
+  <div id="chatter">
+    <textarea id="content" placeholder="碎碎念..."></textarea>
+    <button id="post">發布</button>
+    <div id="feed"></div>
+  </div>
+</section>
