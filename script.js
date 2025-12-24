@@ -1,34 +1,57 @@
+// API 設定
 const API_BASE = 'https://script.google.com/macros/s/AKfycbwUH8ZThEojOldo8LabZrBWXTYITYyeLJzaHnHxBLJ1v1Kg3bVyRSivAdG6uWLKXo1E/exec';
 const TOKEN = 'YOUR_SECRET_TOKEN';
 
+// 登入事件
 document.getElementById('btnLogin').addEventListener('click', async () => {
   const memberId = document.getElementById('memberId').value.trim();
-  const res = await fetch(`${API_BASE}?action=profile&memberId=${encodeURIComponent(memberId)}`);
-  const data = await res.json();
-  if (!data.found) { alert('查無會員'); return; }
+  if (!memberId) { alert('請輸入會員ID'); return; }
 
-  document.getElementById('profile').style.display = 'block';
-  document.getElementById('name').textContent = data.name || memberId;
-  document.getElementById('rank').textContent = data.rank;
-  document.getElementById('spend').textContent = data.spend || 0;
-  document.getElementById('avatar').src = data.avatarURL || '';
-  document.getElementById('icon').textContent = iconByCode(data.iconCode, data.rank);
+  try {
+    const res = await fetch(`${API_BASE}?action=profile&memberId=${encodeURIComponent(memberId)}`);
+    const data = await res.json();
 
-  if (data.rank === '皇帝') enterEffect('皇上駕到！');
-  if (data.rank === '皇后') enterEffect('皇后娘娘登場！');
+    if (!data.found) { alert('查無會員'); return; }
 
-  loadFeed();
-  window.__memberId = memberId;
+    // 顯示會員資料
+    document.getElementById('profile').style.display = 'block';
+    document.getElementById('name').textContent = data.name || memberId;
+    document.getElementById('rank').textContent = data.rank;
+    document.getElementById('spend').textContent = data.spend || 0;
+    document.getElementById('avatar').src = data.avatarURL || '';
+    document.getElementById('icon').textContent = iconByCode(data.iconCode, data.rank);
+
+    // 特效提示
+    if (data.rank === '皇帝') enterEffect('皇上駕到！');
+    if (data.rank === '皇后') enterEffect('皇后娘娘登場！');
+
+    // 載入留言牆
+    window.__memberId = memberId;
+    loadFeed();
+  } catch (err) {
+    console.error(err);
+    alert('登入失敗，請稍後再試');
+  }
 });
 
+// 身份圖示
 function iconByCode(code, rank) {
-  const map = { emperor: '👑', queen: '👑', duke: '🛡️', minister: '📜', consort: '💎', noble: '🌸', maid: '🪷' };
+  const map = {
+    emperor: '👑',
+    queen: '👑',
+    duke: '🛡️',
+    minister: '📜',
+    consort: '💎',
+    noble: '🌸',
+    maid: '🪷'
+  };
   if (map[code]) return map[code];
   if (rank === '皇帝' || rank === '皇后') return '👑';
   return '⭐';
 }
 
-function enterEffect(text){
+// 登場特效
+function enterEffect(text) {
   const el = document.createElement('div');
   el.textContent = text;
   el.style.position = 'fixed';
@@ -42,54 +65,93 @@ function enterEffect(text){
   el.style.boxShadow = '0 8px 24px rgba(0,0,0,0.3)';
   el.style.zIndex = '9999';
   document.body.appendChild(el);
-  setTimeout(()=> el.remove(), 2000);
+  setTimeout(() => el.remove(), 2000);
 }
 
+// 發布留言
 document.getElementById('post').addEventListener('click', async () => {
   const content = document.getElementById('content').value.trim();
-  if (!content) return;
-  const res = await fetch(API_BASE, {
-    method: 'POST',
-    headers: { 'Content-Type':'application/json' },
-    body: JSON.stringify({ action:'postChatter', token:TOKEN, memberId: window.__memberId, content })
-  });
-  const data = await res.json();
-  if (data.ok) { document.getElementById('content').value=''; loadFeed(); }
+  if (!content) { alert('請輸入內容'); return; }
+
+  try {
+    const res = await fetch(API_BASE, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        action: 'postChatter',
+        token: TOKEN,
+        memberId: window.__memberId,
+        content
+      })
+    });
+    const data = await res.json();
+    if (data.ok) {
+      document.getElementById('content').value = '';
+      loadFeed();
+    } else {
+      alert('發布失敗');
+    }
+  } catch (err) {
+    console.error(err);
+    alert('系統錯誤，請稍後再試');
+  }
 });
 
-async function loadFeed(){
-  const res = await fetch(`${API_BASE}?action=feed`);
-  const data = await res.json();
-  const container = document.getElementById('feed');
-  container.innerHTML = '';
-  data.rows.reverse().forEach(row => {
-    const card = document.createElement('div');
-    card.className = 'post';
-    card.innerHTML = `
-      <div><strong>${row.memberId}</strong>：${escapeHTML(row.content)}</div>
-      ${row.editedBy ? `<div style="color:#c00;">御筆：${row.editedBy} 勾掉「${escapeHTML(row.editedDiff||'')}」</div>` : ''}
-      <button class="strike">御筆勾字</button>
-    `;
-    card.querySelector('.strike').addEventListener('click', () => strikePrompt(row.postId));
-    container.appendChild(card);
-  });
+// 載入留言牆
+async function loadFeed() {
+  try {
+    const res = await fetch(`${API_BASE}?action=feed`);
+    const data = await res.json();
+    const container = document.getElementById('feed');
+    container.innerHTML = '';
+
+    data.rows.reverse().forEach(row => {
+      const card = document.createElement('div');
+      card.className = 'post';
+      card.innerHTML = `
+        <div><strong>${row.memberId}</strong>：${escapeHTML(row.content)}</div>
+        ${row.editedBy ? `<div style="color:#c00;">御筆：${row.editedBy} 勾掉「${escapeHTML(row.editedDiff || '')}」</div>` : ''}
+        <button class="strike">御筆勾字</button>
+      `;
+      card.querySelector('.strike').addEventListener('click', () => strikePrompt(row.postId));
+      container.appendChild(card);
+    });
+  } catch (err) {
+    console.error(err);
+    alert('留言牆載入失敗');
+  }
 }
 
-function escapeHTML(str=''){
+// HTML 安全處理
+function escapeHTML(str = '') {
   const div = document.createElement('div');
   div.textContent = str;
   return div.innerHTML;
 }
 
-async function strikePrompt(postId){
+// 御筆勾字
+async function strikePrompt(postId) {
   const start = Number(prompt('開始位置（0為第一個字）'));
-  const end   = Number(prompt('結束位置（不含該位置）'));
+  const end = Number(prompt('結束位置（不含該位置）'));
   if (isNaN(start) || isNaN(end)) return;
-  const res = await fetch(API_BASE, {
-    method: 'POST',
-    headers: { 'Content-Type':'application/json' },
-    body: JSON.stringify({ action:'strikeText', token:TOKEN, postId, editorId: window.__memberId, removeIndices:[start,end] })
-  });
-  const data = await res.json();
-  if (data.ok) loadFeed();
+
+  try {
+    const res = await fetch(API_BASE, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        action: 'strikeText',
+        token: TOKEN,
+        postId,
+        editorId: window.__memberId,
+        removeIndices: [start, end]
+      })
+    });
+    const data = await res.json();
+    if (data.ok) loadFeed();
+    else alert('御筆勾字失敗');
+  } catch (err) {
+    console.error(err);
+    alert('系統錯誤，請稍後再試');
+  }
 }
