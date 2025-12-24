@@ -5,13 +5,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JIU BIRD｜台中中小企業流程顧問｜CleanFlow™ 自動化｜品牌設計與3D呈現</title>
   <meta name="description" content="JIU BIRD（順隆）：CleanFlow™ 自動化流程、網站與品牌設計、CAD/SketchUp/Blender 3D 呈現、微型創業輔導。">
+  <meta name="keywords" content="台中流程顧問, 中小企業自動化, CleanFlow, 系統設計, 品牌設計, 3D呈現, SketchUp, Blender, 宮廟符咒設計">
+  <link rel="canonical" href="https://yaklon828.github.io/">
+  <meta name="robots" content="index,follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="JIU BIRD｜中小企業流程顧問與品牌設計">
+  <meta property="og:description" content="CleanFlow™ 自動化、品牌與3D呈現，讓你的生意快速變現。">
+  <meta property="og:url" content="https://yaklon828.github.io/">
+  <meta property="og:image" content="https://yaklon828.github.io/IMG/og-cover.webp">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="JIU BIRD｜中小企業流程顧問與品牌設計">
+  <meta name="twitter:description" content="CleanFlow™ 自動化、品牌與3D呈現，讓你的生意快速變現。">
+  <meta name="twitter:image" content="https://yaklon828.github.io/IMG/og-cover.webp">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- model-viewer -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <!-- 外部 CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>...原本品牌區塊...</header>
-<nav>...原本導覽列...</nav>
-<section class="section hero">...原本主視覺...</section>
+<header>
+  <div class="brand">
+    <img src="IMG/Logo01.png" alt="JIU BIRD Logo" loading="lazy">
+    <div>
+      <h1>JIU BIRD 個人品牌</h1>
+      <p>工匠精神 × 靈性智慧 × 系統設計｜在地中小企業顧問（台中）</p>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <a href="index.html">首頁</a>
+  <a href="cleanflow.html">CleanFlow™</a>
+  <a href="about.html">關於我</a>
+  <a href="works.html">作品分類</a>
+  <a href="startup.html">微型創業輔導</a>
+  <a href="index2.html">宮廟專頁</a>
+  <a href="contact.html">聯絡我</a>
+</nav>
+
+<section class="section hero" aria-label="主視覺">
+  <div class="cad-bg">
+    <model-viewer src="models/LOGO01.glb"
+      camera-orbit="0deg 90deg 2.5m"
+      auto-rotate rotation-per-second="30deg"
+      camera-controls touch-action="pan-y"
+      shadow-intensity="1" shadow-softness="0.9"
+      environment-image="neutral" exposure="1.2" ar>
+    </model-viewer>
+  </div>
+  <div class="hero-copy">
+    <h2>中小企業快速變現的系統化夥伴</h2>
+    <p>CleanFlow™ 自動化 + 品牌與3D呈現 + SOP 設計。把接單、通知、工單管理與網站流量串起來，少走彎路、直接賺到錢。</p>
+    <div class="muted">台中在地｜宮廟文化融入現代設計｜符咒浮雕模組可客製</div>
+    <div class="cta-row" style="margin-top:12px;">
+      <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSf4t7ykYC3t1gS9HUMKC6UGNZoA-zQR5eYxFHTkI251JZ2TBA/viewform?usp=sharing" target="_blank" rel="noopener">
+        填寫 Google 表單 →
+      </a>
+      <a class="btn btn-outline" href="cleanflow.html">了解 CleanFlow™ →</a>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="services">...原本服務項目...</section>
 <section class="section" id="partners">...原本合作專案...</section>
 
@@ -39,6 +105,9 @@
 
 <section class="section" id="contact">...原本聯絡我...</section>
 <footer>...原本頁尾...</footer>
+
+<!-- Structured Data -->
+<script type="application/ld+json"> ...原本結構化資料... </script>
 
 <script src="script.js"></script>
 </body>
