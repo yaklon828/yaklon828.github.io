@@ -58,9 +58,8 @@
   <a href="startup.html">微型創業輔導</a>
   <a href="index2.html">宮廟專頁</a>
   <a href="contact.html">聯絡我</a>
-  <button id="btnGoogleRegister">用 Google 註冊網站</button>
-</nav>
-
+  <!-- Google 註冊按鈕放在導覽列 -->
+  <button id="btnGoogleRegister">用 Google 註冊</button>
 </nav>
 
 <!-- 跑馬燈（公開留言） -->
@@ -120,7 +119,6 @@
     </div>
   </div>
 </section>
-
 <section class="section" id="partners">
   <h2>合作專案</h2>
   <div class="partners-grid">
@@ -134,7 +132,7 @@
       <img src="IMG/partner2.webp" alt="合作品牌 2" loading="lazy">
       <p>合作品牌 2</p>
     </div>
-        <div class="partner-card">
+    <div class="partner-card">
       <img src="IMG/partner3.webp" alt="合作品牌 3" loading="lazy">
       <p>合作品牌 3</p>
     </div>
@@ -154,10 +152,20 @@
 <section class="section" id="member">
   <h2>會員登入與互動</h2>
 
-  <!-- 登入區（右上角也有快捷按鈕） -->
+  <!-- 登入區 -->
   <div id="login">
-    <input id="memberId" placeholder="輸入你的會員ID（Email 或 LINE UID）" />
+    <input id="memberId" placeholder="輸入你的會員ID（Email 或 Google UID）" />
     <button id="btnLogin">登入</button>
+  </div>
+
+  <!-- 註冊區 -->
+  <div id="register">
+    <button id="btnGoogleRegister">用 Google 註冊</button>
+    <div id="emailRegister">
+      <input id="regEmail" placeholder="輸入 Email">
+      <input id="regPassword" type="password" placeholder="輸入密碼 (至少7字)">
+      <button id="btnEmailRegister">用 Email 註冊</button>
+    </div>
   </div>
 
   <!-- 登入後顯示會員資料 -->
@@ -185,8 +193,9 @@
   <p class="muted">© 2025 JIU BIRD｜CleanFlow™｜系統設計與品牌呈現</p>
 </footer>
 
+<!-- Google 登入 SDK -->
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 <!-- 外部 JS（一定要在 body 最底部） -->
 <script src="script.js"></script>
 </body>
 </html>
-
