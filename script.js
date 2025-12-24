@@ -1,4 +1,4 @@
-const API_BASE = 'https://script.google.com/macros/s/AKfycbwUH8ZThEojOldo8LabZrBWXTYITYyeLJzaHnHxBLJ1v1Kg3bVyRSivAdG6uWLKXo1E/exec';
+const API_BASE = 'https://script.google.com/macros/s/你的URL/exec';
 const TOKEN = 'YOUR_SECRET_TOKEN';
 
 document.getElementById('btnLogin').addEventListener('click', async () => {
