@@ -1,3 +1,4 @@
+// 已拆分為 utils.js, auth.js, profile.js, feed.js
 document.addEventListener('DOMContentLoaded', () => {
   // API 設定
   const API_BASE = 'https://script.google.com/macros/s/AKfycbwUH8ZThEojOldo8LabZrBWXTYITYyeLJzaHnHxBLJ1v1Kg3bVyRSivAdG6uWLKXo1E/exec';
@@ -246,4 +247,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
 
