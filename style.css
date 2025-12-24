@@ -24,6 +24,7 @@ header {
   padding: 24px 16px;
   text-align: center;
   border-bottom: 1px solid rgba(255, 255, 255, .15);
+  position: relative;
 }
 header .brand {
   display: inline-flex;
@@ -46,6 +47,29 @@ header h1 {
 header p {
   margin: 0;
   opacity: .9;
+}
+
+/* Login box (右上角) */
+.login-box {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  gap: 8px;
+}
+.login-box button {
+  background: var(--brand-gold);
+  color: #1b1b1b;
+  font-weight: 700;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all .2s;
+}
+.login-box button:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
 }
 
 /* Nav */
@@ -232,6 +256,27 @@ footer a {
 .muted { color: #777; }
 img[loading="lazy"] { filter: blur(.001px); }
 
+/* 🔥 跑馬燈樣式 */
+.marquee {
+  overflow: hidden;
+  background: var(--brand-blue);
+  color: var(--brand-gold);
+  white-space: nowrap;
+  padding: 8px 0;
+}
+.marquee-strip {
+  display: inline-block;
+  animation: marquee-move 30s linear infinite;
+}
+.marquee-item {
+  display: inline-block;
+  margin-right: 32px;
+}
+@keyframes marquee-move {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
 /* 🔥 會員模組樣式 */
 #member {
   background: var(--card);
@@ -290,6 +335,7 @@ img[loading="lazy"] { filter: blur(.001px); }
   object-fit: cover;
   border: 2px solid var(--brand-blue);
 }
+
 #chatter {
   margin-top: 32px;
   width: 100%;
@@ -313,8 +359,51 @@ img[loading="lazy"] { filter: blur(.001px); }
   cursor: pointer;
   transition: all 0.2s ease;
 }
-
 #post:hover {
   background: #003060;
   transform: translateY(-1px);
+}
+
+/* 留言牆樣式 */
+#feed {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.post {
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 12px 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.05);
+}
+.post strong {
+  color: var(--brand-blue);
+}
+.edit-note {
+  color: #c00;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+/* 跑馬燈樣式 */
+.marquee {
+  overflow: hidden;
+  background: var(--brand-blue);
+  color: var(--brand-gold);
+  white-space: nowrap;
+  padding: 8px 0;
+}
+.marquee-strip {
+  display: inline-block;
+  animation: marquee-move 30s linear infinite;
+}
+.marquee-item {
+  display: inline-block;
+  margin-right: 32px;
+}
+@keyframes marquee-move {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
 }
