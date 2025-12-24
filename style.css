@@ -96,6 +96,21 @@ nav a:hover {
   color: #fff;
   background: rgba(255, 255, 255, .08);
 }
+/* Nav 裡的按鈕 (Google 註冊) */
+nav button {
+  background: var(--brand-gold);
+  color: #1b1b1b;
+  font-weight: 600;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all .2s;
+}
+nav button:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
 
 /* Section */
 .section {
@@ -166,7 +181,6 @@ model-viewer {
 .btn-outline:hover {
   background: rgba(255, 215, 0, .12);
 }
-
 /* Cards */
 .cards {
   display: grid;
@@ -240,43 +254,6 @@ footer a {
   font-weight: 700;
 }
 
-/* Responsive */
-@media (max-width: 980px) {
-  .hero { grid-template-columns: 1fr; }
-  .cards, .partners-grid { grid-template-columns: repeat(2, 1fr); }
-  .cad-bg { height: 300px; }
-}
-@media (max-width: 640px) {
-  .cards, .partners-grid { grid-template-columns: 1fr; }
-  .cad-bg { height: 260px; }
-  nav { gap: 6px; }
-}
-
-/* Utility */
-.muted { color: #777; }
-img[loading="lazy"] { filter: blur(.001px); }
-
-/* 🔥 跑馬燈樣式 */
-.marquee {
-  overflow: hidden;
-  background: var(--brand-blue);
-  color: var(--brand-gold);
-  white-space: nowrap;
-  padding: 8px 0;
-}
-.marquee-strip {
-  display: inline-block;
-  animation: marquee-move 30s linear infinite;
-}
-.marquee-item {
-  display: inline-block;
-  margin-right: 32px;
-}
-@keyframes marquee-move {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
-
 /* 🔥 會員模組樣式 */
 #member {
   background: var(--card);
@@ -308,6 +285,42 @@ img[loading="lazy"] { filter: blur(.001px); }
   filter: brightness(1.05);
   transform: translateY(-1px);
 }
+
+/* 註冊區 */
+#register {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+#emailRegister {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 320px;
+}
+#emailRegister input {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+#emailRegister button {
+  background: var(--brand-blue);
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all .2s;
+}
+#emailRegister button:hover {
+  background: #003060;
+  transform: translateY(-1px);
+}
+
+/* Profile */
 #profile {
   margin-top: 24px;
   display: flex;
@@ -336,6 +349,7 @@ img[loading="lazy"] { filter: blur(.001px); }
   border: 2px solid var(--brand-blue);
 }
 
+/* Chatter */
 #chatter {
   margin-top: 32px;
   width: 100%;
@@ -386,6 +400,20 @@ img[loading="lazy"] { filter: blur(.001px); }
   font-size: 13px;
   margin-top: 6px;
 }
+.post button.strike {
+  margin-top: 8px;
+  background: var(--brand-gold);
+  color: #1b1b1b;
+  font-weight: 600;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all .2s;
+}
+.post button.strike:hover {
+  filter: brightness(1.1);
+}
 
 /* 跑馬燈樣式 */
 .marquee {
@@ -407,3 +435,19 @@ img[loading="lazy"] { filter: blur(.001px); }
   0% { transform: translateX(100%); }
   100% { transform: translateX(-100%); }
 }
+
+/* Responsive */
+@media (max-width: 980px) {
+  .hero { grid-template-columns: 1fr; }
+  .cards, .partners-grid { grid-template-columns: repeat(2, 1fr); }
+  .cad-bg { height: 300px; }
+}
+@media (max-width: 640px) {
+  .cards, .partners-grid { grid-template-columns: 1fr; }
+  .cad-bg { height: 260px; }
+  nav { gap: 6px; }
+}
+
+/* Utility */
+.muted { color: #777; }
+img[loading="lazy"] { filter: blur(.001px); }
