@@ -1,6 +1,6 @@
 // API 設定
 const API_BASE = 'https://script.google.com/macros/s/AKfycbwUH8ZThEojOldo8LabZrBWXTYITYyeLJzaHnHxBLJ1v1Kg3bVyRSivAdG6uWLKXo1E/exec';
-const TOKEN = 'YOUR_SECRET_TOKEN';
+const TOKEN = '740828';
 
 // 登入事件
 document.getElementById('btnLogin').addEventListener('click', async () => {
@@ -155,3 +155,4 @@ async function strikePrompt(postId) {
     alert('系統錯誤，請稍後再試');
   }
 }
+
