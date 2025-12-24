@@ -32,6 +32,10 @@
 
   <!-- 外部 CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Google 登入 SDK + jwt-decode -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3/build/jwt-decode.min.js"></script>
 </head>
 <body>
 
@@ -58,10 +62,7 @@
   <a href="startup.html">微型創業輔導</a>
   <a href="index2.html">宮廟專頁</a>
   <a href="contact.html">聯絡我</a>
-  <!-- Google 註冊按鈕放在導覽列 -->
-  <button id="btnGoogleRegister">用 Google 註冊</button>
 </nav>
-
 <!-- 跑馬燈（公開留言） -->
 <div class="marquee">
   <div id="marquee-strip" class="marquee-strip"></div>
@@ -90,65 +91,7 @@
   </div>
 </section>
 
-<section class="section" id="services">
-  <h2>服務項目</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>CleanFlow™ 自動化</h3>
-      <p>台灣中小企業接單流程設計、LINE 通知、工單與回訪。三週內可上線。</p>
-      <p><a href="cleanflow.html">方案與價格 →</a></p>
-      <p class="muted">關鍵字：中小企業自動化、工單管理、LINE通知</p>
-    </div>
-    <div class="card">
-      <h3>品牌與視覺設計</h3>
-      <p>Logo、網站、icon 系統、一致性識別，強化信任與轉換。</p>
-      <p><a href="works.html#brand">設計作品 →</a></p>
-      <p class="muted">關鍵字：品牌設計、網站設計、識別系統</p>
-    </div>
-    <div class="card">
-      <h3>3D 呈現與空間</h3>
-      <p>CAD/SketchUp/Blender/Revit，符咒浮雕、產品展示與場景渲染。</p>
-      <p><a href="works.html#3d">3D 案例 →</a></p>
-      <p class="muted">關鍵字：SketchUp, Blender, 浮雕</p>
-    </div>
-    <div class="card">
-      <h3>微型創業輔導</h3>
-      <p>SOP、網站架構與話術，線上+線下整合，三階段拉新＋留舊。</p>
-      <p><a href="startup.html">輔導流程 →</a></p>
-      <p class="muted">關鍵字：創業輔導、SOP設計、在地顧問</p>
-    </div>
-  </div>
-</section>
-<section class="section" id="partners">
-  <h2>合作專案</h2>
-  <div class="partners-grid">
-    <div class="partner-card">
-      <a href="https://yaklon829.github.io/Bin/" target="_blank" rel="noopener">
-        <img src="IMG/JIAO-Logo.png" alt="焦來雅合作專案" loading="lazy">
-      </a>
-      <p>焦來雅 JIAOLAIYA</p>
-    </div>
-    <div class="partner-card">
-      <img src="IMG/partner2.webp" alt="合作品牌 2" loading="lazy">
-      <p>合作品牌 2</p>
-    </div>
-    <div class="partner-card">
-      <img src="IMG/partner3.webp" alt="合作品牌 3" loading="lazy">
-      <p>合作品牌 3</p>
-    </div>
-    <div class="partner-card">
-      <img src="IMG/partner4.webp" alt="合作品牌 4" loading="lazy">
-      <p>合作品牌 4</p>
-    </div>
-  </div>
-</section>
-
-<!-- 跑馬燈（公開區） -->
-<div class="marquee">
-  <div id="marquee-strip" class="marquee-strip"></div>
-</div>
-
-<!-- 會員互動（訪客可看牆，登入後才可互動） -->
+<!-- 會員互動 -->
 <section class="section" id="member">
   <h2>會員登入與互動</h2>
 
@@ -160,7 +103,8 @@
 
   <!-- 註冊區 -->
   <div id="register">
-    <button id="btnGoogleRegister">用 Google 註冊</button>
+    <!-- Google 註冊按鈕容器 -->
+    <div id="btnGoogleRegister"></div>
     <div id="emailRegister">
       <input id="regEmail" placeholder="輸入 Email">
       <input id="regPassword" type="password" placeholder="輸入密碼 (至少7字)">
@@ -178,13 +122,13 @@
     <img id="avatar" src="" alt="頭像" />
   </div>
 
-  <!-- 碎碎念互動區（登入後才顯示） -->
+  <!-- 碎碎念互動區 -->
   <div id="chatter" style="display:none;">
     <textarea id="content" placeholder="碎碎念...一行一則，多行將拆成多則"></textarea>
     <button id="post">發布</button>
   </div>
 
-  <!-- 留言牆（公開，只讀） -->
+  <!-- 留言牆 -->
   <div id="feed"></div>
 </section>
 
@@ -193,9 +137,7 @@
   <p class="muted">© 2025 JIU BIRD｜CleanFlow™｜系統設計與品牌呈現</p>
 </footer>
 
-<!-- Google 登入 SDK -->
-<script src="https://accounts.google.com/gsi/client" async defer></script>
-<!-- 外部 JS（一定要在 body 最底部） -->
+<!-- 外部 JS -->
 <script src="script.js"></script>
 </body>
 </html>
