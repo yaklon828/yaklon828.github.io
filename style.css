@@ -1,36 +1,60 @@
-/* 全站字型與背景 */
-body {
-  font-family: "Noto Sans TC", sans-serif;
-  background: #f9f9f9;
-  margin: 0;
-  padding: 0;
+/* Member 模組 */
+#member {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 32px 24px;
+  box-shadow: 0 6px 16px rgba(0,0,0,.06);
+  margin-top: 40px;
 }
 
-/* 區塊通用 */
-.section {
-  padding: 40px 20px;
+#login input {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 12px;
+  font-size: 16px;
 }
 
-/* 會員模組 */
-#login {
-  margin-bottom: 20px;
+#login button {
+  background: var(--brand-gold);
+  color: #1b1b1b;
+  font-weight: 700;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+#login button:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
 }
 
 #profile {
-  margin-bottom: 20px;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
 }
 
-.post {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 12px;
-  margin: 8px 0;
+#profile .badge {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--brand-blue);
 }
 
-.badge {
+#profile .name {
   font-size: 18px;
-  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+#profile .spend {
+  font-size: 16px;
+  color: #555;
 }
 
 #avatar {
@@ -38,4 +62,58 @@ body {
   height: 96px;
   border-radius: 50%;
   object-fit: cover;
+  border: 2px solid var(--brand-blue);
+}
+
+#chatter {
+  margin-top: 32px;
+  width: 100%;
+}
+
+#content {
+  width: 100%;
+  max-width: 600px;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 12px;
+}
+
+#post {
+  background: var(--brand-blue);
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#post:hover {
+  background: #003060;
+}
+
+#feed .post {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 8px 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,.05);
+}
+
+#feed .strike {
+  background: transparent;
+  border: 1px solid var(--brand-gold);
+  color: var(--brand-gold);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+#feed .strike:hover {
+  background: rgba(255,215,0,.1);
 }
