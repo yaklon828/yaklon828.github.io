@@ -38,7 +38,6 @@
   <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3/build/jwt-decode.min.js"></script>
 </head>
 <body>
-
 <header>
   <div class="brand">
     <img src="IMG/Logo01.png" alt="JIU BIRD Logo" loading="lazy">
@@ -65,56 +64,83 @@
   <!-- 額外加上的 Google 註冊按鈕 -->
   <button id="btnGoogleRegister">用 Google 註冊</button>
 </nav>
+
 <!-- 跑馬燈（公開留言） -->
 <div class="marquee"><div id="marquee-strip" class="marquee-strip"></div></div>
 
-<!-- 會員互動 -->
-<section class="section" id="member">
-  <h2>會員登入與互動</h2>
-
-  <!-- 登入區 -->
-  <div id="login">
-    <input id="memberId" placeholder="輸入你的會員ID（Email 或 Google UID）" />
-    <button id="btnLogin">登入</button>
+<section class="section hero" aria-label="主視覺">
+  <div class="cad-bg">
+    <model-viewer src="models/LOGO01.glb"
+      camera-orbit="0deg 90deg 2.5m"
+      auto-rotate rotation-per-second="30deg"
+      camera-controls touch-action="pan-y"
+      shadow-intensity="1" shadow-softness="0.9"
+      environment-image="neutral" exposure="1.2" ar>
+    </model-viewer>
   </div>
-
-  <!-- 註冊區 -->
-  <div id="register">
-    <!-- Google 註冊按鈕容器 -->
-    <div id="btnGoogleRegister"></div>
-    <div id="emailRegister">
-      <input id="regEmail" placeholder="輸入 Email">
-      <input id="regPassword" type="password" placeholder="輸入密碼 (至少7字)">
-      <button id="btnEmailRegister">用 Email 註冊</button>
+  <div class="hero-copy">
+    <h2>中小企業快速變現的系統化夥伴</h2>
+    <p>CleanFlow™ 自動化 + 品牌與3D呈現 + SOP 設計。把接單、通知、工單管理與網站流量串起來，少走彎路、直接賺到錢。</p>
+    <div class="muted">台中在地｜宮廟文化融入現代設計｜符咒浮雕模組可客製</div>
+    <div class="cta-row" style="margin-top:12px;">
+      <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSf4t7ykYC3t1gS9HUMKC6UGNZoA-zQR5eYxFHTkI251JZ2TBA/viewform?usp=sharing" target="_blank" rel="noopener">
+        填寫 Google 表單 →
+      </a>
+      <a class="btn btn-outline" href="cleanflow.html">了解 CleanFlow™ →</a>
     </div>
   </div>
-
-  <!-- 登入後顯示會員資料 -->
-  <div id="profile" style="display:none;">
-    <div class="badge">
-      <span id="icon">👑</span> <span id="rank"></span>
-    </div>
-    <div class="name" id="name"></div>
-    <div class="spend">累計消費：<span id="spend"></span> 元</div>
-    <img id="avatar" src="" alt="頭像" />
-  </div>
-
-  <!-- 碎碎念互動區 -->
-  <div id="chatter" style="display:none;">
-    <textarea id="content" placeholder="碎碎念...一行一則，多行將拆成多則"></textarea>
-    <button id="post">發布</button>
-  </div>
-
-  <!-- 留言牆 -->
-  <div id="feed"></div>
 </section>
 
-<!-- 頁尾 -->
-<footer class="section">
-  <p class="muted">© 2025 JIU BIRD｜CleanFlow™｜系統設計與品牌呈現</p>
-</footer>
+<section class="section" id="services">
+  <h2>服務項目</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>CleanFlow™ 自動化</h3>
+      <p>台灣中小企業接單流程設計、LINE 通知、工單與回訪。三週內可上線。</p>
+      <p><a href="cleanflow.html">方案與價格 →</a></p>
+      <p class="muted">關鍵字：中小企業自動化、工單管理、LINE通知</p>
+    </div>
+    <div class="card">
+      <h3>品牌與視覺設計</h3>
+      <p>Logo、網站、icon 系統、一致性識別，強化信任與轉換。</p>
+      <p><a href="works.html#brand">設計作品 →</a></p>
+      <p class="muted">關鍵字：品牌設計、網站設計、識別系統</p>
+    </div>
+    <div class="card">
+      <h3>3D 呈現與空間</h3>
+      <p>CAD/SketchUp/Blender/Revit，符咒浮雕、產品展示與場景渲染。</p>
+      <p><a href="works.html#3d">3D 案例 →</a></p>
+      <p class="muted">關鍵字：SketchUp, Blender, 浮雕</p>
+    </div>
+    <div class="card">
+      <h3>微型創業輔導</h3>
+      <p>SOP、網站架構與話術，線上+線下整合，三階段拉新＋留舊。</p>
+      <p><a href="startup.html">輔導流程 →</a></p>
+      <p class="muted">關鍵字：創業輔導、SOP設計、在地顧問</p>
+    </div>
+  </div>
+</section>
 
-<!-- 外部 JS -->
-<script src="script.js"></script>
-</body>
-</html>
+<section class="section" id="partners">
+  <h2>合作專案</h2>
+  <div class="partners-grid">
+    <div class="partner-card">
+      <a href="https://yaklon829.github.io/Bin/" target="_blank" rel="noopener">
+        <img src="IMG/JIAO-Logo.png" alt="焦來雅合作專案" loading="lazy">
+      </a>
+              <p>焦來雅 JIAOLAIYA</p>
+    </div>
+    <div class="partner-card">
+      <img src="IMG/partner2.webp" alt="合作品牌 2" loading="lazy">
+      <p>合作品牌 2</p>
+    </div>
+    <div class="partner-card">
+      <img src="IMG/partner3.webp" alt="合作品牌 3" loading="lazy">
+      <p>合作品牌 3</p>
+    </div>
+    <div class="partner-card">
+      <img src="IMG/partner4.webp" alt="合作品牌 4" loading="lazy">
+      <p>合作品牌 4</p>
+    </div>
+  </div>
+</section>
