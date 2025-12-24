@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnGoogleRegister = document.getElementById('btnGoogleRegister');
   if (btnGoogleRegister) {
     btnGoogleRegister.addEventListener('click', () => {
-      // 使用 Google Identity Services
       google.accounts.id.initialize({
         client_id: "你的Google OAuth Client ID.apps.googleusercontent.com",
         callback: handleGoogleResponse
@@ -53,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   async function handleGoogleResponse(response) {
-    // 解析 Google JWT
     const data = jwt_decode(response.credential);
     const memberId = data.sub; // Google UID
     const name = data.name;
