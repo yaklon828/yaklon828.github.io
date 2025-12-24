@@ -1,4 +1,13 @@
-/* 原本的樣式 ... */
+body {
+  font-family: "Noto Sans TC", sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+.section {
+  padding: 40px 20px;
+}
 
 #login {
   margin-bottom: 20px;
