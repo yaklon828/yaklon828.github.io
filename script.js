@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btnGoogleRegister) {
     btnGoogleRegister.addEventListener('click', () => {
       google.accounts.id.initialize({
-        client_id: "你的Google OAuth Client ID.apps.googleusercontent.com",
+        client_id: "56409402493-m71ilaeliu54qg5q475l71ba53baaj7e.apps.googleusercontent.com",
         callback: handleGoogleResponse
       });
       google.accounts.id.prompt(); // 彈出 Google 登入
@@ -246,3 +246,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
