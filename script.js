@@ -39,7 +39,90 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 發布留言
+  // Google 註冊事件
+  const btnGoogleRegister = document.getElementById('btnGoogleRegister');
+  if (btnGoogleRegister) {
+    btnGoogleRegister.addEventListener('click', () => {
+      // 使用 Google Identity Services
+      google.accounts.id.initialize({
+        client_id: "你的Google OAuth Client ID.apps.googleusercontent.com",
+        callback: handleGoogleResponse
+      });
+      google.accounts.id.prompt(); // 彈出 Google 登入
+    });
+  }
+
+  async function handleGoogleResponse(response) {
+    // 解析 Google JWT
+    const data = jwt_decode(response.credential);
+    const memberId = data.sub; // Google UID
+    const name = data.name;
+    const avatarURL = data.picture;
+
+    try {
+      const res = await fetch(API_BASE, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          action: "registerMember",
+          token: TOKEN,
+          memberId,
+          name,
+          gender: "男",
+          avatarURL
+        })
+      });
+      const result = await res.json();
+      if (result.ok) {
+        alert("Google 註冊成功，請登入");
+      } else {
+        alert("註冊失敗：" + result.error);
+      }
+    } catch (err) {
+      console.error(err);
+      alert("系統錯誤，請稍後再試");
+    }
+  }
+
+  // Email 註冊事件
+  const btnEmailRegister = document.getElementById('btnEmailRegister');
+  if (btnEmailRegister) {
+    btnEmailRegister.addEventListener('click', async () => {
+      const email = document.getElementById('regEmail').value.trim();
+      const password = document.getElementById('regPassword').value.trim();
+
+      if (!email || password.length < 7) {
+        alert("請輸入有效 Email，密碼至少7字");
+        return;
+      }
+
+      try {
+        const res = await fetch(API_BASE, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            action: "registerMember",
+            token: TOKEN,
+            memberId: email,
+            name: email.split("@")[0],
+            gender: "男",
+            avatarURL: "",
+            password
+          })
+        });
+        const result = await res.json();
+        if (result.ok) {
+          alert("Email 註冊成功，請登入");
+        } else {
+          alert("註冊失敗：" + result.error);
+        }
+      } catch (err) {
+        console.error(err);
+        alert("系統錯誤，請稍後再試");
+      }
+    });
+  }
+    // 發布留言
   const btnPost = document.getElementById('post');
   if (btnPost) {
     btnPost.addEventListener('click', async () => {
@@ -85,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
         card.className = 'post';
         card.innerHTML = `
           <div><strong>${row.memberId}</strong>：${escapeHTML(row.content)}</div>
-          ${row.editedBy ? `<div style="color:#c00;">御筆：${row.editedBy} 勾掉「${escapeHTML(row.editedDiff || '')}」</div>` : ''}
+          ${row.editedBy ? `<div class="edit-note">御筆：${row.editedBy} 勾掉「${escapeHTML(row.editedDiff || '')}」</div>` : ''}
           <button class="strike">御筆勾字</button>
         `;
         card.querySelector('.strike').addEventListener('click', () => strikePrompt(row.postId));
