@@ -1,3 +1,4 @@
+/* 全站字型與背景 */
 body {
   font-family: "Noto Sans TC", sans-serif;
   background: #f9f9f9;
@@ -5,10 +6,12 @@ body {
   padding: 0;
 }
 
+/* 區塊通用 */
 .section {
   padding: 40px 20px;
 }
 
+/* 會員模組 */
 #login {
   margin-bottom: 20px;
 }
