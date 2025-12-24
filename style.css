@@ -310,4 +310,11 @@ img[loading="lazy"] { filter: blur(.001px); }
   padding: 10px 16px;
   border: none;
   border-radius: 8px;
-  cursor: pointer
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#post:hover {
+  background: #003060;
+  transform: translateY(-1px);
+}
