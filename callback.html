@@ -108,11 +108,28 @@
 
           document.getElementById("formBox").style.display = "block";
         } else {
-          alert("換取 LINE profile 失敗：" + data.error);
+          // 🔑 錯誤代碼翻譯器
+          let msg = "換取 LINE profile 失敗";
+          if (data.error) {
+            if (data.error.includes("invalid_client")) {
+              msg += "：Channel ID/Secret 或 Callback URL 不一致";
+            } else if (data.error.includes("invalid_grant")) {
+              msg += "：授權碼過期或已使用過";
+            } else if (data.error.includes("invalid_request")) {
+              msg += "：id_token 驗證失敗或 client_id 不符";
+            } else if (data.error.includes("unauthorized_client")) {
+              msg += "：LINE Login 未啟用或 Callback URL 未設定";
+            } else if (data.error.includes("access_denied")) {
+              msg += "：使用者拒絕授權";
+            } else {
+              msg += "：" + data.error;
+            }
+          }
+          alert(msg);
         }
       } catch (err) {
         console.error("交換失敗：", err);
-        alert("交換 LINE profile 失敗");
+        alert("交換 LINE profile 失敗：" + String(err));
       }
     }
 
