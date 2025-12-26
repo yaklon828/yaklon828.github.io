@@ -1,63 +1,16 @@
 /* auth.js */
-import { apiGet, apiPost } from './utils.js';
-
-let currentMemberId = null;
-export function getCurrentMemberId() { return currentMemberId; }
-export function setCurrentMemberId(id) { currentMemberId = id; }
-
 document.addEventListener('DOMContentLoaded', () => {
-  const btnLogin = document.getElementById('btnLogin');
-  const btnGoogleRegister = document.getElementById('btnGoogleRegister');
-  const btnEmailRegister = document.getElementById('btnEmailRegister');
+  const btnLineLogin = document.getElementById('btnLineLogin');
 
-  if (btnLogin) {
-    btnLogin.addEventListener('click', async () => {
-      const memberId = document.getElementById('memberId')?.value.trim();
-      if (!memberId) { alert('請輸入會員ID'); return; }
-      const res = await apiGet({ action: 'profile', memberId });
-      if (!res.found) { alert('查無會員'); return; }
-      setCurrentMemberId(memberId);
-      document.dispatchEvent(new CustomEvent('auth:logged', { detail: res }));
-    });
-  }
+  if (btnLineLogin) {
+    btnLineLogin.addEventListener('click', () => {
+      const channelId = window.CONFIG.LINE_CHANNEL_ID;
+      const redirectUri = encodeURIComponent('https://yaklon828.github.io/callback.html');
+      const state = 'jiubird-' + Date.now(); // 可用來防止 CSRF 或追蹤來源
 
-  if (btnGoogleRegister) {
-    btnGoogleRegister.addEventListener('click', () => {
-      google.accounts.id.initialize({
-        client_id: window.CONFIG.GOOGLE_CLIENT_ID,
-        callback: async (response) => {
-          const data = jwt_decode(response.credential);
-          const memberId = data.sub;
-          const name = data.name;
-          const avatarURL = data.picture;
-          const result = await apiPost({
-            action: 'registerMember',
-            memberId, name, gender: '男', avatarURL, provider: 'google'
-          });
-          if (result.ok) alert('Google 註冊成功，請登入');
-          else alert('註冊失敗：' + result.error);
-        }
-      });
-      google.accounts.id.prompt();
-    });
-  }
+      const lineLoginUrl = `https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=${channelId}&redirect_uri=${redirectUri}&state=${state}&scope=profile%20openid`;
 
-  if (btnEmailRegister) {
-    btnEmailRegister.addEventListener('click', async () => {
-      const email = document.getElementById('regEmail')?.value.trim();
-      const password = document.getElementById('regPassword')?.value.trim();
-      if (!email || (password?.length || 0) < 7) { alert('請輸入有效 Email，密碼至少7字'); return; }
-      const result = await apiPost({
-        action: 'registerMember',
-        memberId: email,
-        name: email.split('@')[0],
-        gender: '男',
-        avatarURL: '',
-        provider: 'email',
-        password
-      });
-      if (result.ok) alert('Email 註冊成功，請登入');
-      else alert('註冊失敗：' + result.error);
+      window.location.href = lineLoginUrl;
     });
   }
 });
