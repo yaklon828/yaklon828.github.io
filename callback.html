@@ -9,7 +9,6 @@
   <div id="result"></div>
 
   <script>
-    const urlParams = new URLSearchParams(window.location.search);
     const API_URL = "https://script.google.com/macros/s/AKfycbw9F6xzWml3p2q0s8lHJRCNhlRmm7t7GbyD3Lcnb-UDAk3yXshXHNihJEAu4vr82phPeg/exec";
     const code = "debug-test-code";
 
@@ -20,7 +19,6 @@
       try {
         const res = await fetch(API_URL, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ code })
         });
         const data = await res.json();
@@ -37,8 +35,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
