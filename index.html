@@ -82,9 +82,18 @@
   <script>
     window.CONFIG = {
       LINE_CHANNEL_ID: '2008785557', // 你的 LINE Channel ID
-      API_BASE: 'https://script.google.com/macros/s/AKfycbwUH8ZThEojOldo8LabZrBWXTYITYyeLJzaHnHxBLJ1v1Kg3bVyRSivAdG6uWLKXo1E/exec',
+      API_BASE: 'https://script.google.com/macros/s/AKfycbxlTvWQ922Mj-T9WJo_w-EM1ngqAYh-MagIyAqGaHoTpYcsRaaAWOHnenceNPgjXHwXHg/exec', // 最新部署的 EXEC
       TOKEN: '740828'
     };
+
+    // 綁定 LINE 登入按鈕
+    document.getElementById("btnLineLogin").addEventListener("click", () => {
+      const channelId = window.CONFIG.LINE_CHANNEL_ID;
+      const redirectUri = "https://yaklon828.github.io/callback.html";
+      const state = "randomState123"; // 可以改成隨機字串
+      const loginUrl = `https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=${channelId}&redirect_uri=${encodeURIComponent(redirectUri)}&state=${state}&scope=openid%20profile`;
+      window.location.href = loginUrl;
+    });
   </script>
 
   <!-- 外部 JS -->
@@ -92,4 +101,3 @@
   <script type="module" src="js/marquee.js"></script>
 </body>
 </html>
-
