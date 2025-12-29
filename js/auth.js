@@ -2,20 +2,13 @@
 document.addEventListener('DOMContentLoaded', () => {
   console.log("auth.js 已載入，DOM Ready");
 
+  // ===== 首頁登入按鈕 =====
   const btnLineLogin = document.getElementById('btnLineLogin');
   if (btnLineLogin) {
-    console.log("找到 LINE 登入按鈕");
-
     btnLineLogin.addEventListener('click', () => {
-      console.log("LINE 登入按鈕被點擊");
-
       const channelId = window.CONFIG.LINE_CHANNEL_ID;
-      console.log("使用的 Channel ID:", channelId);
-
       const redirectUriRaw = 'https://yaklon828.github.io/callback.html';
       const redirectUri = encodeURIComponent(redirectUriRaw);
-      console.log("使用的 Callback URL:", redirectUriRaw);
-
       const state = 'jiubird-' + Date.now();
 
       const lineLoginUrl =
@@ -28,8 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log("跳轉至 LINE 授權頁:", lineLoginUrl);
       window.location.href = lineLoginUrl;
     });
-  } else {
-    console.warn("首頁沒有登入按鈕，可能在 callback.html");
   }
 
   // ===== Callback 頁面處理 =====
@@ -46,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     fetch(window.CONFIG.API_BASE, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ code })
     })
     .then(res => res.json())
@@ -54,16 +44,21 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log("LINE profile 回傳：", data);
 
       if (data.ok) {
-        // 顯示登入成功訊息
-        const msgBox = document.createElement("div");
-        msgBox.textContent = `登入成功！歡迎 ${data.name} (${data.userId})`;
-        document.body.insertBefore(msgBox, document.getElementById("chatter"));
+        // 暫存使用者資訊
+        window.USER = { id: data.userId, name: data.name, picture: data.picture };
+
+        // 顯示登入成功訊息 + 頭像
+        const profileBox = document.createElement("div");
+        profileBox.innerHTML = `
+          <div style="text-align:center; margin:20px;">
+            <img src="${data.picture || ''}" alt="頭像" style="width:80px; border-radius:50%;">
+            <p>歡迎 ${data.name} (${data.userId})</p>
+          </div>
+        `;
+        document.body.insertBefore(profileBox, document.getElementById("chatter"));
 
         // 顯示碎碎念區
         document.getElementById("chatter").style.display = "block";
-
-        // 暫存使用者資訊
-        window.USER = { id: data.userId, name: data.name };
       } else {
         alert("登入失敗：" + (data.error || "未知錯誤"));
       }
