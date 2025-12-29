@@ -9,7 +9,9 @@
   <div id="result"></div>
 
   <script>
+    // 後端 Apps Script 部署網址（最新的 /exec）
     const API_URL = "https://script.google.com/macros/s/AKfycbw9F6xzWml3p2q0s8lHJRCNhlRmm7t7GbyD3Lcnb-UDAk3yXshXHNihJEAu4vr82phPeg/exec";
+    // 測試用固定 code
     const code = "debug-test-code";
 
     async function init() {
@@ -24,7 +26,9 @@
         const data = await res.json();
         console.log("後端回傳：", data);
 
-        document.getElementById("result").textContent = JSON.stringify(data);
+        // 顯示版本號與完整回傳內容
+        document.getElementById("result").textContent =
+          "版本：" + (data.version || "未帶版本") + " → " + JSON.stringify(data);
       } catch (err) {
         console.error("交換失敗：", err);
         document.getElementById("result").textContent = "交換失敗：" + String(err);
@@ -35,4 +39,3 @@
   </script>
 </body>
 </html>
-
